@@ -48,7 +48,18 @@ const notes = (await getCollection("notes"))
         ))}
       </section>
 
-      <footer class="footer">
+      <section class="newsletter-cta" aria-labelledby="newsletter-title">
+  <span class="section-tag">H² Signal / Weekly</span>
+  <div>
+    <h2 id="newsletter-title">Useful AI.<br />No noise.</h2>
+    <p>One concise weekly note with practical workflows, tools and ideas worth testing.</p>
+  </div>
+  <a class="newsletter-button" href="https://hacks2.substack.com" target="_blank" rel="noopener noreferrer">
+    Subscribe on Substack <span>↗</span>
+  </a>
+</section>
+
+          <footer class="footer">
         <span>© 2026 Hacks²</span>
         <span>Built for applied intelligence</span>
         <a href="/disclosure/">Editorial disclosure</a>
@@ -56,4 +67,5 @@ const notes = (await getCollection("notes"))
     </main>
   </body>
 </html>
+
 

@@ -299,3 +299,58 @@ button { font: inherit; }
 .index-disclosure p { max-width: 760px; margin: 0; }
 .index-disclosure strong { color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 .index-disclosure a { color: var(--cyan); text-decoration: underline; text-underline-offset: 4px; }
+
+.newsletter-cta {
+  margin: 0 clamp(20px, 8vw, 140px);
+  padding: clamp(56px, 8vw, 110px) 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(110px, .55fr) minmax(0, 1.8fr) auto;
+  align-items: end;
+  gap: 28px;
+}
+
+.newsletter-cta h2 {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 7rem);
+  line-height: .82;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+
+.newsletter-cta p {
+  max-width: 440px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.newsletter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 19px;
+  background: var(--cyan);
+  color: #07101a;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.newsletter-button:hover {
+  background: var(--paper);
+  transform: translateY(-3px);
+}
+
+.newsletter-button span { font-size: 1.2rem; }
+
+@media (max-width: 760px) {
+  .newsletter-cta { grid-template-columns: 1fr; gap: 22px; }
+  .newsletter-button { width: fit-content; }
+}
