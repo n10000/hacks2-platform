@@ -35,7 +35,7 @@ const tools = (await getCollection("tools"))
         <p>A selective stack for people who want better work, not another dashboard to manage.</p>
       </section>
 
-      <section class="tool-list">
+      <section class="index-disclosure"><p><strong>Editorial standard:</strong> tools are selected for practical usefulness. Some future outbound links may be affiliate links; this will always be disclosed. <a href="/disclosure/">Read our policy ↗</a></p></section>`r`n`n          <section class="tool-list">
         {tools.map((tool, index) => (
           <a class="tool-card" href={`/tools/${tool.id}/`}>
             <span>0{index + 1} / {tool.data.category}</span>
@@ -54,8 +54,10 @@ const tools = (await getCollection("tools"))
       <footer class="footer">
         <span>© 2026 Hacks²</span>
         <span>Built for applied intelligence</span>
-        <span>hacks2.com</span>
+        <a href="/disclosure/">Editorial disclosure</a>
       </footer>
     </main>
   </body>
 </html>
+
+

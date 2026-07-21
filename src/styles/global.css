@@ -286,3 +286,16 @@ button { font: inherit; }
   .tool-card:hover { padding-left: 0; }
   .tool-card-meta { justify-content: space-between; }
 }
+
+.index-disclosure {
+  margin: 0 clamp(20px, 8vw, 140px);
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: Georgia, serif;
+  line-height: 1.55;
+}
+
+.index-disclosure p { max-width: 760px; margin: 0; }
+.index-disclosure strong { color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.index-disclosure a { color: var(--cyan); text-decoration: underline; text-underline-offset: 4px; }
