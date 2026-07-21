@@ -1,0 +1,58 @@
+---
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
+
+const workflows = (await getCollection("workflows"))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Repeatable AI workflows from Hacks2." />
+    <title>Workflows — Hacks2</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks2 home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/#tools">Tools</a>
+          <a href="/#notes">Field Notes</a>
+        </div>
+        <span class="nav-menu">Index / 002</span>
+      </nav>
+
+      <section class="archive-hero">
+        <span class="section-tag">Workflow atlas</span>
+        <h1>Systems that<br /><em>survive work.</em></h1>
+        <p>Practical AI operating models built around clear inputs, useful outputs and decisions you can measure.</p>
+      </section>
+
+      <section class="workflow-list">
+        {workflows.map((workflow, index) => (
+          <a class="workflow-card" href={`/workflows/${workflow.id}/`}>
+            <span>0{index + 1} / {workflow.data.category}</span>
+            <div>
+              <h2>{workflow.data.title}</h2>
+              <p>{workflow.data.description}</p>
+            </div>
+            <strong>{workflow.data.readTime} ↗</strong>
+          </a>
+        ))}
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>
