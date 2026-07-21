@@ -1,0 +1,58 @@
+---
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("notes"))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Field notes from the moving edge of applied AI." />
+    <title>Field Notes — Hacks²</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Index / 004</span>
+      </nav>
+
+      <section class="archive-hero">
+        <span class="section-tag">Field notes</span>
+        <h1>Signal over<br /><em>noise.</em></h1>
+        <p>Experiments, opinions and implementation lessons from using AI where results actually matter.</p>
+      </section>
+
+      <section class="workflow-list">
+        {notes.map((note, index) => (
+          <a class="workflow-card" href={`/notes/${note.id}/`}>
+            <span>0{index + 1} / {note.data.category}</span>
+            <div>
+              <h2>{note.data.title}</h2>
+              <p>{note.data.description}</p>
+            </div>
+            <strong>{note.data.readTime} ↗</strong>
+          </a>
+        ))}
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>

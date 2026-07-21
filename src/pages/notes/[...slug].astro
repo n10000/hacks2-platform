@@ -1,0 +1,81 @@
+---
+import "../../styles/global.css";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const publishedDate = note.data.publishedAt.toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={note.data.description} />
+    <title>{note.data.title} — Field Notes — Hacks²</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Note / 001</span>
+      </nav>
+
+      <article class="article-shell">
+        <header class="article-header">
+          <span class="section-tag">{note.data.category} / {note.data.readTime}</span>
+          <h1>{note.data.title}</h1>
+          <p>{note.data.description}</p>
+          <div class="article-meta">
+            <span>Published {publishedDate}</span>
+            <span>H² field note</span>
+          </div>
+        </header>
+
+        <aside class="article-rail">
+          <div>
+            <span>Field note</span>
+            <p>Short observations from real AI work — collected to improve the next decision.</p>
+          </div>
+        </aside>
+
+        <div class="article-content">
+          <Content />
+        </div>
+      </article>
+
+      <section class="article-next">
+        <span class="section-tag">More signals</span>
+        <a href="/notes/">Read the field notes <span>↗</span></a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>

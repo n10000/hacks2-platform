@@ -31,8 +31,8 @@ const protocols = [
         </a>
         <div class="nav-links">
           <a href="#workflows">Workflows</a>
-          <a href="#tools">Tools</a>
-          <a href="#notes">Field Notes</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
         </div>
         <span class="nav-menu">Index / 001</span>
       </nav>
@@ -78,7 +78,7 @@ const protocols = [
           <p class="protocol-aside">We document what survives contact with actual work: clear inputs, durable processes and outcomes you can measure.</p>
           <div class="protocol-list">
             {protocols.map(([title, description]) => (
-              <a class="protocol-item" href="#notes">
+              <a class="protocol-item" href="/notes/">
                 <h3>{title}</h3>
                 <span>{description}</span>
                 <b aria-hidden="true">↗</b>
@@ -104,4 +104,5 @@ const protocols = [
     </main>
   </body>
 </html>
+
 

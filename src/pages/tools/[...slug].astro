@@ -1,0 +1,80 @@
+---
+import "../../styles/global.css";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { slug: tool.id },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={tool.data.description} />
+    <title>{tool.data.title} — Tools — Hacks²</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Tool / 001</span>
+      </nav>
+
+      <article class="article-shell">
+        <header class="article-header">
+          <span class="section-tag">{tool.data.category} / Tool index</span>
+          <h1>{tool.data.title}</h1>
+          <p>{tool.data.description}</p>
+          <div class="article-meta">
+            <span>{tool.data.pricing}</span>
+            <span>H² tool review</span>
+          </div>
+        </header>
+
+        <aside class="article-rail">
+          <div>
+            <span>Verdict</span>
+            <p>{tool.data.verdict}</p>
+          </div>
+          <div>
+            <span>Official site</span>
+            <p><a class="inline-link" href={tool.data.website} target="_blank" rel="noreferrer">Visit tool ↗</a></p>
+          </div>
+        </aside>
+
+        <div class="article-content">
+          <Content />
+        </div>
+      </article>
+
+      <section class="article-next">
+        <span class="section-tag">Keep exploring</span>
+        <a href="/tools/">Return to the tool index <span>↗</span></a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>

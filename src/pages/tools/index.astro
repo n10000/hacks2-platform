@@ -1,0 +1,61 @@
+---
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
+
+const tools = (await getCollection("tools"))
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="A selective index of AI tools that earn a place in real workflows." />
+    <title>Tools — Hacks²</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Index / 003</span>
+      </nav>
+
+      <section class="archive-hero">
+        <span class="section-tag">The tool index</span>
+        <h1>Tools with<br /><em>teeth.</em></h1>
+        <p>A selective stack for people who want better work, not another dashboard to manage.</p>
+      </section>
+
+      <section class="tool-list">
+        {tools.map((tool, index) => (
+          <a class="tool-card" href={`/tools/${tool.id}/`}>
+            <span>0{index + 1} / {tool.data.category}</span>
+            <div>
+              <h2>{tool.data.title}</h2>
+              <p>{tool.data.description}</p>
+            </div>
+            <div class="tool-card-meta">
+              <strong>{tool.data.pricing}</strong>
+              <span>↗</span>
+            </div>
+          </a>
+        ))}
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>
