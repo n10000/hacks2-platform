@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+
+const signals = [
+  { number: "01 / Workflows", title: "Repeatable systems.", text: "Practical AI operating models that take a task from idea to a working result." },
+  { number: "02 / Tools", title: "Useful by default.", text: "A sharp filter for the tools worth learning, paying for, or connecting." },
+  { number: "03 / Field Notes", title: "Reality, not hype.", text: "Experiments, patterns, and lessons from the moving edge of applied AI." },
+];
+
+const protocols = [
+  ["Workflow Atlas", "Step-by-step systems for real work."],
+  ["Tool Index", "The stack behind faster decisions."],
+  ["Field Notes", "Signals collected while building."],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Hacks² is an editorial AI interface for workflows, tools and automations." />
+    <title>Hacks² — AI workflows, tools & automations</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="#workflows">Workflows</a>
+          <a href="#tools">Tools</a>
+          <a href="#notes">Field Notes</a>
+        </div>
+        <span class="nav-menu">Index / 001</span>
+      </nav>
+
+      <section class="hero">
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="hero-kicker"><span class="pulse"></span> Live research for useful intelligence</div>
+        <h1 class="hero-title">Make AI<br /><span class="offset">do <em>work.</em></span></h1>
+        <div class="hero-footer">
+          <p class="hero-copy">Hacks² is a field guide for people building an unfair advantage with AI workflows, tools and automation.</p>
+          <a class="primary-link" href="#workflows">Enter the index <span class="arrow">↘</span></a>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>AI workflows</span><span>✳</span><span>Tools with teeth</span><span>✳</span><span>Automate the boring</span><span>✳</span><span>Signal over noise</span><span>✳</span>
+          <span>AI workflows</span><span>✳</span><span>Tools with teeth</span><span>✳</span><span>Automate the boring</span><span>✳</span><span>Signal over noise</span><span>✳</span>
+        </div>
+      </div>
+
+      <section class="section" id="workflows">
+        <span class="section-tag">The operating system</span>
+        <h2 class="section-heading">Less prompt theatre.<br />More output.</h2>
+        <div class="signal-grid">
+          {signals.map((signal) => (
+            <article class="signal">
+              <span class="signal-number">{signal.number}</span>
+              <div>
+                <h3>{signal.title}</h3>
+                <p>{signal.text}</p>
+              </div>
+              <span>↗</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section" id="tools">
+        <span class="section-tag">A useful starting point</span>
+        <h2 class="section-heading">The H² protocol.</h2>
+        <div class="protocol">
+          <p class="protocol-aside">We document what survives contact with actual work: clear inputs, durable processes and outcomes you can measure.</p>
+          <div class="protocol-list">
+            {protocols.map(([title, description]) => (
+              <a class="protocol-item" href="#notes">
+                <h3>{title}</h3>
+                <span>{description}</span>
+                <b aria-hidden="true">↗</b>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="notes">
+        <div>
+          <p>H² / issue zero</p>
+          <h2>Build smarter.<br /><span>Ship stranger.</span></h2>
+          <a class="primary-link" href="mailto:hello@hacks2.com">Get the first signal <span class="arrow">↗</span></a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <span>hacks2.com</span>
+      </footer>
+    </main>
+  </body>
+</html>
