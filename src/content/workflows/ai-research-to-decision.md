@@ -14,6 +14,7 @@ tools:
   - "Claude"
   - "Google Drive"
   - "Notion"
+template: "research-decision-brief"
 ---
 
 Good research is not the same as collecting links.
