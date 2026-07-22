@@ -26,6 +26,8 @@ const tools = defineCollection({
     website: z.string().url(),
     verdict: z.string(),
     featured: z.boolean().default(false),
+    bestFor: z.array(z.string()).default([]),
+    watchOutFor: z.string().optional(),
   }),
 });
 
