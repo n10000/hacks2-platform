@@ -6,6 +6,11 @@ pricing: "Free / Plus / Pro"
 website: "https://chatgpt.com/"
 verdict: "Best used as a working environment, not just a prompt box."
 featured: true
+bestFor:
+  - "Turning messy briefs into an executable plan"
+  - "Research, writing and analysis in one workspace"
+  - "Building reusable prompts, projects and working templates"
+watchOutFor: "Verify important facts, figures and source claims. The quality of the output depends on the context and constraints you provide."
 ---
 
 ## The short version
