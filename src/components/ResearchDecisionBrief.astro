@@ -1,0 +1,85 @@
+---
+const briefTemplate = `AI RESEARCH-TO-DECISION BRIEF
+
+Decision question
+[What exactly needs a decision? Include the deadline and decision owner.]
+
+Evaluation criteria
+1. [Criterion] — [Why it matters] — [Weight: high / medium / low]
+2. [Criterion] — [Why it matters] — [Weight: high / medium / low]
+3. [Criterion] — [Why it matters] — [Weight: high / medium / low]
+
+Evidence map
+• Primary sources: [official documentation, original data, direct statements]
+• Supporting sources: [credible analysis, specialist reporting]
+• Signals: [reviews, community discussion, early indicators]
+• Evidence gaps: [what you could not verify]
+
+Facts
+• [Verified claim] — [source link] — [date checked]
+
+Inferences
+• [What the evidence suggests] — [reasoning]
+
+Uncertainties
+• [What remains unknown] — [how it could change the decision]
+
+Recommendation
+[The action you recommend, for whom, and why now.]
+
+Risks and mitigations
+• [Risk] — [likelihood / impact] — [mitigation or trigger to stop]
+
+Next action
+[Named owner] will [specific action] by [date].
+
+Review date
+[Date to revisit this brief, plus what new evidence should be checked.]`;
+---
+
+<section class="brief-system" aria-labelledby="brief-system-title">
+  <div class="brief-intro">
+    <span class="section-tag">Template asset / 001</span>
+    <h2 id="brief-system-title">AI research-to-decision brief</h2>
+    <p>A one-page working document for decisions that need evidence, judgment and a clear next move.</p>
+  </div>
+
+  <ol class="brief-steps" aria-label="How to use this template">
+    <li><span>01</span><div><strong>Frame the decision</strong><p>Write one decision question before opening more tabs. Name the owner and the deadline.</p></div></li>
+    <li><span>02</span><div><strong>Collect with a source hierarchy</strong><p>Start with primary sources, then add supporting analysis. Keep the link beside every important claim.</p></div></li>
+    <li><span>03</span><div><strong>Let AI organize, then verify</strong><p>Use AI to extract claims, compare options and spot gaps. Verify the claims that would change your recommendation.</p></div></li>
+    <li><span>04</span><div><strong>Commit to the brief</strong><p>Separate facts from inferences, state the uncertainty, choose a next action and schedule the review date.</p></div></li>
+  </ol>
+
+  <div class="brief-copy-area">
+    <div class="brief-copy-head">
+      <div>
+        <span class="section-tag">Copy and use</span>
+        <p>Paste this into Notion, Google Docs, your project tracker or an AI chat.</p>
+      </div>
+      <button class="copy-brief" type="button" data-copy-brief>Copy template</button>
+    </div>
+    <textarea class="brief-template" readonly aria-label="AI Research-to-Decision Brief template">{briefTemplate}</textarea>
+  </div>
+
+  <p class="brief-note">Useful rule: if a claim would materially change the decision, attach its original source and label its confidence.</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-brief]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const template = button.closest(".brief-copy-area")?.querySelector<HTMLTextAreaElement>(".brief-template");
+      if (!template) return;
+
+      try {
+        await navigator.clipboard.writeText(template.value);
+        button.textContent = "Copied";
+        window.setTimeout(() => { button.textContent = "Copy template"; }, 1800);
+      } catch {
+        template.focus();
+        template.select();
+        button.textContent = "Select to copy";
+      }
+    });
+  });
+</script>

@@ -63,6 +63,15 @@ const publishedDate = note.data.publishedAt.toLocaleDateString("en-US", {
 
         <div class="article-content">
           <Content />
+
+          {note.data.relatedWorkflow && (
+            <aside class="related-workflow" aria-label="Related workflow">
+              <span class="section-tag">Put this into practice</span>
+              <h2>{note.data.relatedWorkflow.title}</h2>
+              <p>{note.data.relatedWorkflow.description}</p>
+              <a href={note.data.relatedWorkflow.href}>Open workflow <span>↗</span></a>
+            </aside>
+          )}
         </div>
       </article>
 
