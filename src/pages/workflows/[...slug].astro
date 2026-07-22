@@ -1,0 +1,109 @@
+---
+import "../../styles/global.css";
+import { getCollection, render } from "astro:content";
+import ResearchDecisionBrief from "../../components/ResearchDecisionBrief.astro";
+
+export async function getStaticPaths() {
+  const workflows = await getCollection("workflows");
+
+  return workflows.map((workflow) => ({
+    params: { slug: workflow.id },
+    props: { workflow },
+  }));
+}
+
+const { workflow } = Astro.props;
+const { Content } = await render(workflow);
+const publishedDate = workflow.data.publishedAt.toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={workflow.data.description} />
+    <title>{workflow.data.title} — Workflow — Hacks²</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Workflow / 001</span>
+      </nav>
+
+      <article class="article-shell">
+        <header class="article-header">
+          <span class="section-tag">{workflow.data.category} / {workflow.data.readTime}</span>
+          <h1>{workflow.data.title}</h1>
+          <p>{workflow.data.description}</p>
+          <div class="article-meta">
+            <span>Published {publishedDate}</span>
+            <span>H² operating workflow</span>
+          </div>
+        </header>
+
+        <aside class="article-rail">
+          <div>
+            <span>What this gives you</span>
+            <ul>{workflow.data.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>
+          </div>
+          <div>
+            <span>Suggested stack</span>
+            <p>{workflow.data.tools.join(" · ")}</p>
+          </div>
+        </aside>
+
+        <div class="article-content">
+          <Content />
+
+          {workflow.data.template === "research-decision-brief" ? (
+            <ResearchDecisionBrief />
+          ) : (
+            <section class="workflow-template" aria-labelledby="template-title">
+              <span class="section-tag">Copy this template</span>
+              <h2 id="template-title">Start small.<br />Make it repeatable.</h2>
+              <ol>
+                <li><strong>Input:</strong> Define the job, audience, constraints and source material.</li>
+                <li><strong>Draft:</strong> Use AI for structure and options, not the final unchecked answer.</li>
+                <li><strong>Review:</strong> Check facts, judgment, tone and the consequence of a mistake.</li>
+                <li><strong>Deliver:</strong> Put the useful output where work actually happens.</li>
+                <li><strong>Learn:</strong> Record what improved, failed or should change next time.</li>
+              </ol>
+            </section>
+          )}
+
+          <section class="workflow-subscribe" aria-labelledby="signal-title">
+            <span class="section-tag">H² Signal / Weekly</span>
+            <h2 id="signal-title">Keep your decision system sharp.</h2>
+            <p>Get one concise weekly note with practical workflows, tools and ideas worth testing — no template bundle pitch attached.</p>
+            <a href="https://hacks2.substack.com" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span>↗</span></a>
+          </section>
+        </div>
+      </article>
+
+      <section class="article-next">
+        <span class="section-tag">Keep building</span>
+        <a href="/workflows/">Explore all workflows <span>↗</span></a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <a href="/disclosure/">Editorial disclosure</a>
+      </footer>
+    </main>
+  </body>
+</html>
