@@ -6,7 +6,18 @@ pricing: "Free / Pro / Max"
 website: "https://claude.ai/"
 verdict: "Excellent when the work needs calm reasoning and strong editorial control."
 featured: true
+bestFor:
+  - "Reading long documents and extracting the important decisions"
+  - "Writing and editing where a clear, natural voice matters"
+  - "Stress-testing a plan before it becomes execution"
+watchOutFor: "Do not use a polished answer as proof that the underlying assumptions are correct. Keep the source material visible and verify the decision-critical claims."
 ---
+
+## The short version
+
+Claude is a valuable second brain when the task needs concentration rather than speed: a long brief, a sensitive client message, a policy draft or a plan with real trade-offs.
+
+It is strongest when you give it the full context and ask it to examine the work, not merely produce more words.
 
 ## What it is good at
 
@@ -23,6 +34,13 @@ Use it for:
 - identifying assumptions, risks and missing information;
 - creating first drafts that need a restrained, natural voice;
 - reviewing a plan before it becomes execution.
+
+## A practical starting setup
+
+1. Put the original brief, source documents and non-negotiables in one conversation or project.
+2. Ask for a short summary of the real decision before requesting a draft.
+3. Ask it to name missing evidence, assumptions and possible objections.
+4. Make the final call against the original source material, not against the most elegant wording.
 
 ## The H² rule
 
