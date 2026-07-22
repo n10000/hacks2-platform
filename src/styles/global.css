@@ -366,3 +366,40 @@ button { font: inherit; }
   .newsletter-cta { grid-template-columns: 1fr; gap: 22px; }
   .newsletter-button { width: fit-content; }
 }
+
+
+.related-workflow { margin-top: 56px; padding: 30px 32px; border: 1px solid var(--line); background: rgba(121,232,244,.06); }
+.related-workflow h2 { margin: 17px 0 12px; }
+.related-workflow p { max-width: 540px; margin-bottom: 22px; color: #c6c7bc; }
+.related-workflow a { display: inline-flex; gap: 11px; align-items: center; color: var(--cyan); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.related-workflow a span { font-size: 1.1rem; }
+
+.brief-system { margin-top: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-family: Georgia, serif; }
+.brief-intro { padding: 30px 0 28px; }
+.brief-intro h2 { max-width: 600px; margin: 18px 0 12px; }
+.brief-intro p { max-width: 560px; margin: 0; color: #c6c7bc; }
+.brief-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.brief-steps li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; min-height: 155px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.brief-steps li > span { color: var(--cyan); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .12em; }
+.brief-steps strong { display: block; color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: 1.05rem; letter-spacing: .03em; text-transform: uppercase; }
+.brief-steps p { margin: 8px 0 0; color: var(--muted); font-size: .95rem; line-height: 1.45; }
+.brief-copy-area { margin-top: 24px; padding: 22px; background: var(--paper); color: var(--ink); }
+.brief-copy-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
+.brief-copy-head .section-tag { color: #7560df; }
+.brief-copy-head p { margin: 9px 0 0; color: #4d4f4a; font-size: .95rem; line-height: 1.4; }
+.copy-brief { flex: 0 0 auto; padding: 13px 16px; border: 0; background: var(--ink); color: var(--paper); cursor: pointer; font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.copy-brief:hover { background: #7560df; }
+.brief-template { display: block; width: 100%; min-height: 590px; resize: vertical; padding: 18px; border: 1px solid #b7b7aa; border-radius: 0; background: #e8e7de; color: #252621; font: .84rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; }
+.brief-note { margin: 0; padding: 19px 0; color: var(--muted); font-size: .93rem; font-style: italic; }
+.workflow-subscribe { margin-top: 22px; padding: 32px; background: var(--paper); color: var(--ink); }
+.workflow-subscribe p { max-width: 520px; color: #4d4f4a; }
+.workflow-subscribe a { display: inline-flex; gap: 12px; margin-top: 6px; padding: 13px 17px; background: var(--ink); color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.workflow-subscribe a span { color: var(--acid); font-size: 1.1rem; }
+@media (max-width: 760px) {
+  .brief-steps { grid-template-columns: 1fr; }
+  .brief-steps li { min-height: 0; }
+  .brief-copy-area { padding: 16px; }
+  .brief-copy-head { align-items: start; flex-direction: column; }
+  .brief-template { min-height: 620px; padding: 14px; font-size: .76rem; }
+  .related-workflow { padding: 24px 20px; }
+}
