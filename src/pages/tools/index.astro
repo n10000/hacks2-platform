@@ -40,14 +40,14 @@ const tools = (await getCollection("tools"))
           <section class="tool-list">
         {tools.map((tool, index) => (
           <a class="tool-card" href={`/tools/${tool.id}/`}>
-            <span>0{index + 1} / {tool.data.category}</span>
+            <span>0{index + 1} / {tool.data.category}{tool.data.featured ? " / Recommended" : ""}</span>
             <div>
               <h2>{tool.data.title}</h2>
               <p>{tool.data.description}</p>
             </div>
             <div class="tool-card-meta">
               <strong>{tool.data.pricing}</strong>
-              <span>↗</span>
+              <span aria-hidden="true">↗</span>
             </div>
           </a>
         ))}
