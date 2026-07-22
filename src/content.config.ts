@@ -13,6 +13,7 @@ const workflows = defineCollection({
     featured: z.boolean().default(false),
     outcomes: z.array(z.string()),
     tools: z.array(z.string()),
+    template: z.enum(["research-decision-brief"]).optional(),
   }),
 });
 
@@ -39,6 +40,11 @@ const notes = defineCollection({
     publishedAt: z.coerce.date(),
     category: z.string(),
     readTime: z.string(),
+    relatedWorkflow: z.object({
+      title: z.string(),
+      href: z.string(),
+      description: z.string(),
+    }).optional(),
   }),
 });
 
