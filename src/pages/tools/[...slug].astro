@@ -66,22 +66,16 @@ const linkLabel = affiliateUrl ? "Affiliate link" : "Official website";
         </aside>
 
         <div>
-          {tool.id === "chatgpt" && <>
-            <section class="tool-snapshot" aria-label="ChatGPT quick summary">
-              <div>
-                <span>Best for</span>
-                <ul>
-                  <li>Turning messy briefs into an executable plan</li>
-                  <li>Research, writing and analysis in one workspace</li>
-                  <li>Building reusable prompts, projects and working templates</li>
-                </ul>
-              </div>
-              <div>
-                <span>Watch out for</span>
-                <p>Verify important facts, figures and source claims. The quality of the output depends on the context and constraints you provide.</p>
-              </div>
-            </section>
-          </>}
+          {(tool.data.bestFor.length > 0 || tool.data.watchOutFor) && <section class="tool-snapshot" aria-label={`${tool.data.title} quick summary`}>
+            {tool.data.bestFor.length > 0 && <div>
+              <span>Best for</span>
+              <ul>{tool.data.bestFor.map((item) => <li>{item}</li>)}</ul>
+            </div>}
+            {tool.data.watchOutFor && <div>
+              <span>Watch out for</span>
+              <p>{tool.data.watchOutFor}</p>
+            </div>}
+          </section>}
           <p class="affiliate-notice">{affiliateUrl ? "This page contains an affiliate link. Hacks² may earn a commission at no extra cost to you." : "This is a direct link to the official website. Hacks² does not currently earn a commission from this link."} <a href="/disclosure/">Read the policy ↗</a></p>
           <div class="article-content"><Content /></div>
         </div>
