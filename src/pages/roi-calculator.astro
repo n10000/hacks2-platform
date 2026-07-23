@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Estimate the time and budget an AI workflow could return to your team each month." />
+    <title>Automation ROI Calculator — Hacks²</title>
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home"><span class="mark">H²</span><span>Hacks² / Applied AI</span></a>
+        <div class="nav-links"><a href="/workflows/">Workflows</a><a href="/tools/">Tools</a><a href="/notes/">Field Notes</a></div>
+        <span class="nav-menu">Utility / 001</span>
+      </nav>
+
+      <section class="calculator-hero">
+        <span class="section-tag">Automation utility / 001</span>
+        <h1>Find the work<br /><em>worth removing.</em></h1>
+        <p>Use a realistic estimate of repetitive work to see where an AI workflow could return time, budget and attention. It is a planning signal, not a promise.</p>
+      </section>
+
+      <section class="calculator-shell" aria-labelledby="calculator-title">
+        <div class="calculator-intro">
+          <span class="section-tag">Your baseline</span>
+          <h2 id="calculator-title">What is manual work costing each month?</h2>
+          <p>Start with one task your team repeats: sorting inbound requests, drafting a weekly report, research, content production or client onboarding.</p>
+        </div>
+
+        <form class="roi-form" id="roi-calculator">
+          <label><span>People doing the task</span><input name="people" type="number" min="1" max="10000" value="2" inputmode="numeric" /></label>
+          <label><span>Hours per person / month</span><input name="hours" type="number" min="0" max="744" step="0.5" value="12" inputmode="decimal" /></label>
+          <label><span>Fully loaded hourly cost</span><div class="input-unit"><span>$</span><input name="rate" type="number" min="0" max="100000" step="0.5" value="35" inputmode="decimal" /></div></label>
+          <label><span>Expected time reduction</span><div class="input-unit"><input name="reduction" type="number" min="0" max="100" step="1" value="35" inputmode="numeric" /><span>%</span></div></label>
+          <label><span>New tools + setup / month</span><div class="input-unit"><span>$</span><input name="investment" type="number" min="0" max="1000000" step="1" value="120" inputmode="decimal" /></div></label>
+          <button type="submit" class="calculator-button" data-analytics-event="roi_calculator_submit" data-analytics-label="Automation ROI calculator" data-analytics-location="roi_calculator">Calculate the signal <span>↘</span></button>
+        </form>
+
+        <section class="roi-result" id="roi-result" aria-live="polite">
+          <span class="section-tag">Estimated monthly return</span>
+          <div class="roi-number" id="roi-net">$720</div>
+          <p id="roi-summary">About 8.4 hours returned to the team after allowing for a $120 monthly investment.</p>
+          <dl class="roi-breakdown">
+            <div><dt>Hours recovered</dt><dd id="roi-hours">8.4 h</dd></div>
+            <div><dt>Gross time value</dt><dd id="roi-gross">$840</dd></div>
+            <div><dt>Monthly ROI</dt><dd id="roi-percent">600%</dd></div>
+          </dl>
+          <p class="roi-note">Use this as a filter: prioritise repetitive, measurable work with clear inputs and a human check at the end.</p>
+          <a class="inline-link" href="/workflows/">Choose a workflow to test ↗</a>
+        </section>
+      </section>
+
+      <section class="article-next calculator-next"><span class="section-tag">The useful next move</span><a href="/workflows/">Turn the estimate into a workflow <span>↗</span></a></section>
+      <footer class="footer"><span>© 2026 Hacks²</span><span>Built for applied intelligence</span><a href="/disclosure/">Editorial disclosure</a></footer>
+    </main>
+
+    <script>
+      const form = document.querySelector<HTMLFormElement>("#roi-calculator");
+      const numberFormat = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+      function value(name: string) {
+        const input = form?.elements.namedItem(name);
+        return input instanceof HTMLInputElement ? Math.max(0, Number(input.value) || 0) : 0;
+      }
+
+      function updateResult() {
+        const people = value("people");
+        const hours = value("hours");
+        const rate = value("rate");
+        const reduction = Math.min(100, value("reduction")) / 100;
+        const investment = value("investment");
+        const recoveredHours = people * hours * reduction;
+        const grossValue = recoveredHours * rate;
+        const netValue = grossValue - investment;
+        const roi = investment > 0 ? ((grossValue - investment) / investment) * 100 : grossValue > 0 ? null : 0;
+
+        document.querySelector("#roi-net")!.textContent = numberFormat.format(netValue);
+        document.querySelector("#roi-hours")!.textContent = `${recoveredHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`;
+        document.querySelector("#roi-gross")!.textContent = numberFormat.format(grossValue);
+        document.querySelector("#roi-percent")!.textContent = roi === null ? "Positive" : `${Math.round(roi)}%`;
+        document.querySelector("#roi-summary")!.textContent = `About ${recoveredHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} hours returned to the team after allowing for a ${numberFormat.format(investment)} monthly investment.`;
+      }
+
+      form?.addEventListener("submit", (event) => { event.preventDefault(); updateResult(); });
+      form?.addEventListener("input", updateResult);
+    </script>
+  </body>
+</html>
