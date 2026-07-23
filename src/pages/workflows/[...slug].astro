@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { getCollection, render } from "astro:content";
 import ResearchDecisionBrief from "../../components/ResearchDecisionBrief.astro";
 
@@ -28,6 +29,7 @@ const publishedDate = workflow.data.publishedAt.toLocaleDateString("en-US", {
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={workflow.data.description} />
     <title>{workflow.data.title} — Workflow — Hacks²</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <main class="page-shell">
