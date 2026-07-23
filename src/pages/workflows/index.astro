@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { getCollection } from "astro:content";
 
 const workflows = (await getCollection("workflows"))
@@ -13,6 +14,7 @@ const workflows = (await getCollection("workflows"))
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Repeatable AI workflows from Hacks2." />
     <title>Workflows — Hacks2</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <main class="page-shell">
