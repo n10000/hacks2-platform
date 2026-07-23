@@ -11,4 +11,22 @@ const measurementId = "G-F2VRQ1HXXT";
   }
   gtag("js", new Date());
   gtag("config", measurementId);
+  document.addEventListener("click", (event) => {
+    const clickedElement = event.target;
+    if (!(clickedElement instanceof Element)) return;
+
+    const link = clickedElement.closest("a[data-analytics-event]");
+    if (!(link instanceof HTMLAnchorElement)) return;
+
+    const eventName = link.dataset.analyticsEvent;
+    if (!eventName) return;
+
+    gtag("event", eventName, {
+      event_category: "outbound",
+      event_label: link.dataset.analyticsLabel || link.textContent?.trim() || "Outbound link",
+      link_url: link.href,
+      link_location: link.dataset.analyticsLocation || "unknown",
+      transport_type: "beacon",
+    });
+  });
 </script>
