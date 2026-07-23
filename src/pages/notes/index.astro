@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { getCollection } from "astro:content";
 
 const notes = (await getCollection("notes"))
@@ -13,6 +14,7 @@ const notes = (await getCollection("notes"))
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Field notes from the moving edge of applied AI." />
     <title>Field Notes — Hacks²</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <main class="page-shell">
