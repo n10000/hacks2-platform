@@ -63,7 +63,7 @@ const linkLabel = affiliateUrl ? "Affiliate link" : "Official website";
           </div>
           <div>
             <span>{linkLabel}</span>
-            <p><a class="inline-link" href={outboundUrl} target="_blank" rel="sponsored noreferrer">Visit tool ↗</a></p>
+            <p><a class="inline-link" href={outboundUrl} target="_blank" rel="sponsored noreferrer" data-analytics-event="tool_outbound_click" data-analytics-label={tool.data.title} data-analytics-location="tool_article">Visit tool ↗</a></p>
           </div>
         </aside>
 
