@@ -1,0 +1,121 @@
+---
+import "../styles/global.css";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+
+const packItems = [
+  ["01", "The operating loop", "A repeatable way to turn an AI task into a reliable process."],
+  ["02", "Prompt architecture", "The input structure that gets better outputs without endless rewrites."],
+  ["03", "Research-to-decision", "A practical workflow for turning scattered sources into a clear recommendation."],
+  ["04", "Automation ROI sheet", "A simple way to estimate whether an automation deserves your time and budget."],
+  ["05", "Weekly review ritual", "A 20-minute system for improving what you use instead of collecting more tools."],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Get the free AI Workflow Starter Pack: five practical systems for better AI work, sharper decisions and useful automation."
+    />
+    <title>Free AI Workflow Starter Pack — Hacks²</title>
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <main class="page-shell starter-page">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <a class="starter-nav-link" href="/">Index / 001</a>
+      </nav>
+
+      <section class="starter-hero">
+        <div class="starter-orbit" aria-hidden="true"></div>
+        <p class="hero-kicker"><span class="pulse"></span> Free field kit / issue 001</p>
+        <p class="starter-eyebrow">For operators, founders and curious builders</p>
+        <h1>MAKE AI<br /><span>USEFUL <em>FIRST.</em></span></h1>
+        <div class="starter-hero-bottom">
+          <p>
+            Five practical AI workflows to help you move from random prompts and tool overload
+            to clearer work, better decisions and automations worth keeping.
+          </p>
+          <a
+            class="primary-link"
+            href="https://hacks2.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="starter_pack_subscribe_click"
+            data-analytics-label="AI Workflow Starter Pack"
+            data-analytics-location="starter_pack_hero"
+          >
+            Get the free pack <span class="arrow">↗</span>
+          </a>
+        </div>
+        <p class="starter-microcopy">Delivered through the Hacks² Signal on Substack. No spam. Unsubscribe anytime.</p>
+      </section>
+
+      <section class="starter-includes" aria-labelledby="pack-title">
+        <div class="starter-section-heading">
+          <span class="section-tag">Inside the pack</span>
+          <h2 id="pack-title">FIVE SYSTEMS.<br />ONE BETTER WAY<br />TO <em>WORK.</em></h2>
+        </div>
+
+        <ol class="starter-list">
+          {packItems.map(([number, title, description]) => (
+            <li>
+              <span>{number}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+              <b aria-hidden="true">↘</b>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="starter-proof">
+        <p class="section-tag">Why this exists</p>
+        <blockquote>
+          “The goal is not to use more AI. It is to build a small number of systems that make your work measurably better.”
+        </blockquote>
+        <p>
+          Hacks² documents workflows that survive contact with real work: clear inputs,
+          practical steps and outcomes you can assess.
+        </p>
+      </section>
+
+      <section class="starter-final-cta">
+        <span>H² / START HERE</span>
+        <h2>STOP<br />COLLECTING.<br /><em>START BUILDING.</em></h2>
+        <p>Subscribe once. Get the Starter Pack and the weekly signal for applied AI.</p>
+        <a
+          class="primary-link"
+          href="https://hacks2.substack.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="starter_pack_subscribe_click"
+          data-analytics-label="AI Workflow Starter Pack"
+          data-analytics-location="starter_pack_final_cta"
+        >
+          Get the free pack <span class="arrow">↗</span>
+        </a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <a href="/disclosure/">Editorial disclosure</a>
+      </footer>
+    </main>
+  </body>
+</html>
