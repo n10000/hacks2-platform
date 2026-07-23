@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -27,6 +28,7 @@ const publishedDate = note.data.publishedAt.toLocaleDateString("en-US", {
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={note.data.description} />
     <title>{note.data.title} — Field Notes — Hacks²</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <main class="page-shell">
