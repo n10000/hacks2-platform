@@ -5,6 +5,48 @@ import { getCollection } from "astro:content";
 
 const tools = (await getCollection("tools"))
   .sort((a, b) => Number(b.data.featured) - Number(a.data.featured));
+
+const toolContext: Record<string, { number: string; signal: string; useWhen: string }> = {
+  chatgpt: {
+    number: "01",
+    signal: "Versatile AI workspace",
+    useWhen: "You need to move from a messy brief to a practical plan, draft, analysis or reusable workflow.",
+  },
+  claude: {
+    number: "02",
+    signal: "Long-context thinking",
+    useWhen: "You need to read carefully, write naturally or challenge the logic behind an important decision.",
+  },
+  notion: {
+    number: "03",
+    signal: "Knowledge system",
+    useWhen: "You need to keep decisions, templates and recurring work visible after the AI conversation ends.",
+  },
+};
+
+const startingPoints = [
+  {
+    number: "01",
+    question: "I have a messy task and need momentum.",
+    answer: "Start with ChatGPT.",
+    detail: "Use it to clarify the brief, map the work and produce a usable first version.",
+    href: "/tools/chatgpt/",
+  },
+  {
+    number: "02",
+    question: "I need to think through a long document or important decision.",
+    answer: "Start with Claude.",
+    detail: "Use it as a careful second reader: find assumptions, gaps and better framing.",
+    href: "/tools/claude/",
+  },
+  {
+    number: "03",
+    question: "My useful work disappears into chats and scattered notes.",
+    answer: "Start with Notion.",
+    detail: "Use it to retain the decisions, templates and next actions worth repeating.",
+    href: "/tools/notion/",
+  },
+];
 ---
 
 <!doctype html>
@@ -12,12 +54,15 @@ const tools = (await getCollection("tools"))
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="A selective index of AI tools that earn a place in real workflows." />
-    <title>Tools — Hacks²</title>
+    <meta
+      name="description"
+      content="Best AI tools for practical work: an independent, workflow-first guide to ChatGPT, Claude and Notion."
+    />
+    <title>Best AI Tools for Real Work — Hacks²</title>
     <GoogleAnalytics />
   </head>
   <body>
-    <main class="page-shell">
+    <main class="page-shell tools-hub">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="/" aria-label="Hacks squared home">
           <span class="mark">H²</span>
@@ -25,48 +70,165 @@ const tools = (await getCollection("tools"))
         </a>
         <div class="nav-links">
           <a href="/workflows/">Workflows</a>
-          <a href="/tools/">Tools</a>
+          <a href="/tools/" aria-current="page">Tools</a>
           <a href="/notes/">Field Notes</a>
         </div>
         <span class="nav-menu">Index / 003</span>
       </nav>
 
-      <section class="archive-hero">
-        <span class="section-tag">The tool index</span>
-        <h1>Tools with<br /><em>teeth.</em></h1>
-        <p>A selective stack for people who want better work, not another dashboard to manage.</p>
+      <section class="tools-hub-hero">
+        <p class="hero-kicker"><span class="pulse"></span> Independent tool guide / updated 2026</p>
+        <p class="tools-hub-eyebrow">The Best AI Tools for real work</p>
+        <h1>DON’T CHOOSE<br />A TOOL.<br /><em>CHOOSE A JOB.</em></h1>
+        <div class="tools-hub-intro">
+          <p>
+            The useful AI stack is smaller than the internet makes it look.
+            Start with the work you want to improve, then choose the tool that earns its place.
+          </p>
+          <a class="primary-link" href="#starting-points">
+            Find your starting point <span class="arrow">↓</span>
+          </a>
+        </div>
       </section>
 
-      <section class="index-disclosure"><p><strong>Editorial standard:</strong> tools are selected for practical usefulness. Some future outbound links may be affiliate links; this will always be disclosed. <a href="/disclosure/">Read our policy ↗</a></p></section>
+      <section class="tools-principles" aria-label="How Hacks squared evaluates tools">
+        <div>
+          <span>01</span>
+          <h2>WORKFLOW<br />FIRST</h2>
+          <p>We judge tools by the quality of work they unlock, not by feature count.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h2>SMALL<br />STACKS</h2>
+          <p>A good tool removes friction. A bad stack creates another system to maintain.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h2>CLEAR<br />TRADE-OFFS</h2>
+          <p>Every recommendation includes where the tool shines and what to watch out for.</p>
+        </div>
+      </section>
 
-          <section class="tool-list">
-        {tools.map((tool, index) => (
-          <a class="tool-card" href={`/tools/${tool.id}/`}>
-            <span>0{index + 1} / {tool.data.category}{tool.data.featured ? " / Recommended" : ""}</span>
-            <div>
-              <h2>{tool.data.title}</h2>
-              <p>{tool.data.description}</p>
-            </div>
-            <div class="tool-card-meta">
-              <strong>{tool.data.pricing}</strong>
-              <span aria-hidden="true">↗</span>
-            </div>
-          </a>
-        ))}
+      <section id="starting-points" class="tools-starting-points" aria-labelledby="starting-points-title">
+        <div class="tools-section-heading">
+          <span class="section-tag">Start here</span>
+          <h2 id="starting-points-title">PICK THE<br /><em>PROBLEM.</em></h2>
+          <p>You do not need all three tools on day one. Pick the one closest to the work that is already blocking you.</p>
+        </div>
+
+        <ol class="starting-point-list">
+          {startingPoints.map((item) => (
+            <li>
+              <span>{item.number}</span>
+              <div>
+                <p>{item.question}</p>
+                <h3>{item.answer}</h3>
+                <small>{item.detail}</small>
+              </div>
+              <a href={item.href} aria-label={`Read the ${item.answer} guide`}>↗</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="tools-hub-index" aria-labelledby="tools-index-title">
+        <div class="tools-index-header">
+          <div>
+            <span class="section-tag">The shortlist</span>
+            <h2 id="tools-index-title">THREE TOOLS.<br />THREE DISTINCT<br /><em>ROLES.</em></h2>
+          </div>
+          <p>
+            These are the tools we would start with for a lean, capable applied-AI setup.
+            Read each guide before adding a new subscription.
+          </p>
+        </div>
+
+        <div class="tools-hub-cards">
+          {tools.map((tool) => {
+            const context = toolContext[tool.id] ?? {
+              number: "—",
+              signal: tool.data.category,
+              useWhen: tool.data.description,
+            };
+
+            return (
+              <article class="tools-hub-card">
+                <div class="tools-hub-card-top">
+                  <span>{context.number} / {context.signal}</span>
+                  {tool.data.featured && <b>Core pick</b>}
+                </div>
+                <h3>{tool.data.title}</h3>
+                <p>{tool.data.description}</p>
+                <div class="tools-hub-card-use">
+                  <span>Use it when</span>
+                  <strong>{context.useWhen}</strong>
+                </div>
+                <div class="tools-hub-card-footer">
+                  <span>{tool.data.pricing}</span>
+                  <a href={`/tools/${tool.id}/`}>Read the guide <i>↗</i></a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section class="tools-stack-map" aria-labelledby="stack-map-title">
+        <div>
+          <span class="section-tag">A practical stack</span>
+          <h2 id="stack-map-title">THINK.<br />STORE.<br /><em>IMPROVE.</em></h2>
+        </div>
+        <div class="stack-map-flow">
+          <div>
+            <span>01 / Think</span>
+            <h3>ChatGPT or Claude</h3>
+            <p>Turn source material, ambiguity and questions into a clear next move.</p>
+          </div>
+          <span class="stack-arrow" aria-hidden="true">→</span>
+          <div>
+            <span>02 / Store</span>
+            <h3>Notion</h3>
+            <p>Keep the decision, template or workflow where you can use it again.</p>
+          </div>
+          <span class="stack-arrow" aria-hidden="true">→</span>
+          <div>
+            <span>03 / Improve</span>
+            <h3>Weekly review</h3>
+            <p>Remove what does not help, refine what does and keep the stack intentionally small.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tools-hub-disclosure">
+        <span class="section-tag">Editorial disclosure</span>
+        <h2>NO PAY-TO-PLAY<br /><em>RECOMMENDATIONS.</em></h2>
+        <p>
+          Hacks² selects tools for practical usefulness. In the future, some outbound links may be affiliate links;
+          if that happens, the relationship will be clearly marked and will never change our verdict.
+        </p>
+        <a href="/disclosure/">Read the full policy <span>↗</span></a>
       </section>
 
       <section class="newsletter-cta" aria-labelledby="newsletter-title">
-  <span class="section-tag">H² Signal / Weekly</span>
-  <div>
-    <h2 id="newsletter-title">Useful AI.<br />No noise.</h2>
-    <p>One concise weekly note with practical workflows, tools and ideas worth testing.</p>
-  </div>
-  <a class="newsletter-button" href="https://hacks2.substack.com/subscribe" target="_blank" rel="noopener noreferrer" data-analytics-event="substack_subscribe_click" data-analytics-label="Substack newsletter" data-analytics-location="tools_newsletter">
-    Subscribe on Substack <span>↗</span>
-  </a>
-</section>
+        <span class="section-tag">H² Signal / Weekly</span>
+        <div>
+          <h2 id="newsletter-title">Useful AI.<br />No noise.</h2>
+          <p>Get the free Starter Pack and one concise weekly note with workflows, tools and ideas worth testing.</p>
+        </div>
+        <a
+          class="newsletter-button"
+          href="https://hacks2.substack.com/subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="substack_subscribe_click"
+          data-analytics-label="Substack newsletter"
+          data-analytics-location="best_ai_tools_hub"
+        >
+          Get the free pack <span>↗</span>
+        </a>
+      </section>
 
-          <footer class="footer">
+      <footer class="footer">
         <span>© 2026 Hacks²</span>
         <span>Built for applied intelligence</span>
         <a href="/disclosure/">Editorial disclosure</a>
@@ -74,7 +236,3 @@ const tools = (await getCollection("tools"))
     </main>
   </body>
 </html>
-
-
-
-
