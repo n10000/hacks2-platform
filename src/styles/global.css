@@ -802,3 +802,122 @@ button { font: inherit; }
   .stack-map-flow h3 { margin-top: 26px; }
   .stack-arrow { display: none; }
 }
+
+/* ChatGPT vs Claude */
+.comparison-hero {
+  min-height: 760px;
+  padding: clamp(78px, 11vw, 155px) clamp(20px, 8vw, 140px) 90px;
+  background:
+    radial-gradient(circle at 80% 24%, rgba(121,232,244,.22), transparent 23rem),
+    radial-gradient(circle at 13% 80%, rgba(168,147,255,.16), transparent 25rem);
+}
+.comparison-overline { margin: 42px 0 15px; color: var(--cyan); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; }
+.comparison-hero h1 {
+  max-width: 970px;
+  margin: 0;
+  font-size: clamp(4.7rem, 12vw, 11.7rem);
+  font-weight: 900;
+  line-height: .72;
+  letter-spacing: -.105em;
+  text-transform: uppercase;
+}
+.comparison-hero h1 span { color: var(--violet); font-size: .54em; letter-spacing: -.05em; }
+.comparison-hero h1 em,
+.comparison-verdict em,
+.comparison-section-heading em,
+.comparison-table-heading em,
+.comparison-method em,
+.comparison-takeaway em { color: var(--acid); font-style: normal; }
+.comparison-hero-bottom {
+  display: grid;
+  grid-template-columns: minmax(250px, 450px) auto;
+  gap: 45px;
+  align-items: end;
+  margin-top: 72px;
+}
+.comparison-hero-bottom p,
+.verdict-copy p,
+.comparison-table-heading > p,
+.comparison-takeaway > p {
+  margin: 0;
+  color: #c6c7bc;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.58;
+}
+.comparison-verdict,
+.comparison-decisions,
+.comparison-method {
+  display: grid;
+  grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(55px, 10vw, 165px);
+  padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px);
+}
+.comparison-verdict h2,
+.comparison-section-heading h2,
+.comparison-table-heading h2,
+.comparison-method h2,
+.comparison-takeaway h2 {
+  margin: 18px 0 0;
+  font-size: clamp(3.1rem, 6vw, 6.3rem);
+  line-height: .83;
+  letter-spacing: -.078em;
+  text-transform: uppercase;
+}
+.verdict-copy { display: grid; gap: 25px; padding-top: 14px; border-top: 1px solid var(--line); }
+.verdict-copy strong { color: var(--cyan); font-family: Arial, sans-serif; }
+.comparison-decisions { background: var(--paper); color: var(--ink); }
+.comparison-decisions .section-tag { color: #7560df; font-weight: 800; }
+.decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid rgba(17,18,14,.25); }
+.decision-grid article { display: flex; flex-direction: column; min-height: 390px; padding: 27px; border-right: 1px solid rgba(17,18,14,.25); }
+.decision-grid article:last-child { border-right: 0; background: var(--ink); color: var(--paper); }
+.decision-grid article > span { color: #7560df; font-size: .7rem; font-weight: 800; letter-spacing: .14em; }
+.decision-grid h3 { margin: 45px 0 14px; font-size: clamp(1.8rem, 3.2vw, 3.15rem); line-height: .85; letter-spacing: -.065em; text-transform: uppercase; }
+.decision-grid p { margin: 0; font-family: Georgia, serif; line-height: 1.5; opacity: .72; }
+.decision-grid a { display: flex; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 18px; border-top: 1px solid currentColor; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.decision-grid i { color: var(--cyan); font-size: 1rem; font-style: normal; }
+.comparison-table-wrap { padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); }
+.comparison-table-heading { display: grid; grid-template-columns: 1fr minmax(250px, 400px); gap: 42px; align-items: end; margin-bottom: 55px; }
+.comparison-table-heading > p { color: var(--muted); }
+.comparison-table { border-top: 1px solid var(--line); }
+.comparison-row { display: grid; grid-template-columns: minmax(150px, .75fr) 1.3fr 1.3fr minmax(125px, .6fr); gap: 28px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.comparison-row-head { padding: 14px 0; color: var(--cyan); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.comparison-row strong { font-size: 1.05rem; line-height: 1.2; text-transform: uppercase; }
+.comparison-row p { margin: 0; color: var(--muted); font-family: Georgia, serif; font-size: .96rem; line-height: 1.5; }
+.comparison-row b { color: var(--acid); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+.comparison-method { background: rgba(121,232,244,.055); }
+.comparison-method ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.comparison-method li { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+.comparison-method li > span { color: var(--cyan); font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
+.comparison-method h3 { margin: 0 0 8px; font-size: clamp(1.45rem, 2.5vw, 2.45rem); line-height: .9; letter-spacing: -.06em; text-transform: uppercase; }
+.comparison-method li p { max-width: 570px; margin: 0; color: var(--muted); font-family: Georgia, serif; line-height: 1.5; }
+.comparison-takeaway { padding: clamp(88px, 13vw, 170px) clamp(20px, 8vw, 140px); background: var(--violet); color: var(--ink); }
+.comparison-takeaway .section-tag { color: var(--ink); font-weight: 800; }
+.comparison-takeaway h2 { max-width: 920px; }
+.comparison-takeaway h2 em { color: var(--paper); }
+.comparison-takeaway > p { max-width: 600px; margin-top: 30px; color: rgba(17,18,14,.75); }
+.comparison-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 34px; }
+.comparison-links a { display: inline-flex; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--ink); font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .comparison-hero { min-height: 665px; padding-top: 84px; }
+  .comparison-hero-bottom,
+  .comparison-verdict,
+  .comparison-decisions,
+  .comparison-method,
+  .comparison-table-heading { grid-template-columns: 1fr; }
+  .comparison-hero-bottom { margin-top: 52px; }
+  .comparison-verdict,
+  .comparison-decisions,
+  .comparison-method { gap: 48px; }
+  .decision-grid { grid-template-columns: 1fr; }
+  .decision-grid article { min-height: 310px; border-right: 0; border-bottom: 1px solid rgba(17,18,14,.25); }
+  .decision-grid article:last-child { border-bottom: 0; }
+  .comparison-row { grid-template-columns: 1fr; gap: 10px; }
+  .comparison-row-head { display: none; }
+  .comparison-row { padding: 24px 0; }
+  .comparison-row p::before { display: block; margin-bottom: 5px; color: var(--cyan); font-family: Arial, sans-serif; font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .comparison-row p:nth-of-type(1)::before { content: "ChatGPT"; }
+  .comparison-row p:nth-of-type(2)::before { content: "Claude"; }
+  .comparison-row b { margin-top: 7px; }
+}
