@@ -1,0 +1,241 @@
+---
+import "../styles/global.css";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+
+const comparisons = [
+  {
+    area: "Messy work to momentum",
+    chatgpt: "Strong first choice. Turn a rough brief, files and questions into a plan, draft or working first version.",
+    claude: "Strong when the task needs more deliberate interpretation before you act.",
+    winner: "ChatGPT",
+  },
+  {
+    area: "Long documents and careful writing",
+    chatgpt: "Useful for summarising, restructuring and working through source material.",
+    claude: "Often the better fit when tone, nuance, consistency and a careful second read matter most.",
+    winner: "Claude",
+  },
+  {
+    area: "Research with sources",
+    chatgpt: "A practical choice when you want research, cited findings and follow-up work in one workspace.",
+    claude: "Useful for analysing material you already have and pressure-testing the reasoning.",
+    winner: "ChatGPT",
+  },
+  {
+    area: "Daily general-purpose work",
+    chatgpt: "Broad, flexible and easy to use across planning, analysis, writing, files and ideation.",
+    claude: "Excellent for focused writing and analysis, especially when you value a thoughtful editorial pass.",
+    winner: "Depends on the job",
+  },
+];
+
+const decisions = [
+  {
+    number: "01",
+    title: "Choose ChatGPT",
+    copy: "If you need momentum: research a topic, inspect files, create a plan, draft a deliverable or move between different types of work without changing tools.",
+    href: "/tools/chatgpt/",
+    link: "Read the ChatGPT guide",
+  },
+  {
+    number: "02",
+    title: "Choose Claude",
+    copy: "If the quality of the thinking and writing is the job: examine a long document, challenge a decision, improve a difficult draft or find what a first pass missed.",
+    href: "/tools/claude/",
+    link: "Read the Claude guide",
+  },
+  {
+    number: "03",
+    title: "Use both — deliberately",
+    copy: "Use one tool to create the first useful version, then use the other as a second reader. Do not duplicate work just because you have two subscriptions.",
+    href: "/tools/",
+    link: "See the practical AI stack",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="ChatGPT vs Claude for real work. Compare their practical strengths, trade-offs and the jobs each AI tool is best suited for."
+    />
+    <link rel="canonical" href="https://hacks2.com/chatgpt-vs-claude/" />
+    <title>ChatGPT vs Claude: Which AI Tool Should You Use? — Hacks²</title>
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <main class="page-shell comparison-page">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+        </div>
+        <span class="nav-menu">Compare / 001</span>
+      </nav>
+
+      <header class="comparison-hero">
+        <p class="hero-kicker"><span class="pulse"></span> Tool comparison / Updated July 2026</p>
+        <p class="comparison-overline">An applied-AI decision guide</p>
+        <h1>CHATGPT<br /><span>VS</span><br /><em>CLAUDE.</em></h1>
+        <div class="comparison-hero-bottom">
+          <p>
+            There is no universal winner. The better tool is the one that improves the
+            specific piece of work in front of you — without creating another system to manage.
+          </p>
+          <a class="primary-link" href="#decision">
+            Make the choice <span class="arrow">↓</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="comparison-verdict" aria-labelledby="verdict-title">
+        <div>
+          <span class="section-tag">The short answer</span>
+          <h2 id="verdict-title">START WITH<br /><em>THE JOB.</em></h2>
+        </div>
+        <div class="verdict-copy">
+          <p>
+            Choose <strong>ChatGPT</strong> when you need a versatile workspace for research,
+            files, planning, analysis and execution. Choose <strong>Claude</strong> when the
+            assignment calls for sustained reading, careful reasoning or a more editorial second pass.
+          </p>
+          <p>
+            For many people, the best setup is not a permanent rivalry. It is a clear primary
+            tool plus a second opinion when the stakes justify it.
+          </p>
+        </div>
+      </section>
+
+      <section id="decision" class="comparison-decisions" aria-labelledby="decision-title">
+        <div class="comparison-section-heading">
+          <span class="section-tag">Choose by outcome</span>
+          <h2 id="decision-title">WHAT ARE YOU<br /><em>TRYING TO DO?</em></h2>
+        </div>
+
+        <div class="decision-grid">
+          {decisions.map((item) => (
+            <article>
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+              <a href={item.href}>{item.link} <i>↗</i></a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="comparison-table-wrap" aria-labelledby="comparison-title">
+        <div class="comparison-table-heading">
+          <span class="section-tag">Practical comparison</span>
+          <h2 id="comparison-title">NOT A SCORECARD.<br /><em>A FIT CHECK.</em></h2>
+          <p>
+            These are working distinctions, not absolute rules. Model versions, plans and
+            product features change; your own workflow should be the final test.
+          </p>
+        </div>
+
+        <div class="comparison-table" role="table" aria-label="ChatGPT and Claude comparison">
+          <div class="comparison-row comparison-row-head" role="row">
+            <span role="columnheader">Work area</span>
+            <span role="columnheader">ChatGPT</span>
+            <span role="columnheader">Claude</span>
+            <span role="columnheader">Best starting point</span>
+          </div>
+
+          {comparisons.map((item) => (
+            <div class="comparison-row" role="row">
+              <strong role="cell">{item.area}</strong>
+              <p role="cell">{item.chatgpt}</p>
+              <p role="cell">{item.claude}</p>
+              <b role="cell">{item.winner}</b>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="comparison-method">
+        <div>
+          <span class="section-tag">How to evaluate either tool</span>
+          <h2>RUN ONE<br /><em>REAL TEST.</em></h2>
+        </div>
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Pick a live task</h3>
+              <p>Use something that matters this week — a brief, proposal, decision, document or research question.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Define the output</h3>
+              <p>Ask for a useful deliverable, not just “help”: a decision memo, revised draft, plan or structured analysis.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Check the work</h3>
+              <p>Verify facts, assumptions and sources. The tool that saves time but adds checking work is not automatically better.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Keep the winner</h3>
+              <p>Choose the one that gives you a stronger result with less friction. Revisit the decision only when your work changes.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="comparison-takeaway">
+        <span class="section-tag">The useful answer</span>
+        <h2>CHATGPT FOR<br />BREADTH.<br /><em>CLAUDE FOR DEPTH.</em></h2>
+        <p>
+          That is a useful starting heuristic, not a law. Both are capable tools.
+          The important part is building a repeatable workflow around the one that best matches your work.
+        </p>
+        <div class="comparison-links">
+          <a href="/tools/chatgpt/">Explore ChatGPT <span>↗</span></a>
+          <a href="/tools/claude/">Explore Claude <span>↗</span></a>
+        </div>
+      </section>
+
+      <section class="newsletter-cta" aria-labelledby="newsletter-title">
+        <span class="section-tag">H² Signal / Weekly</span>
+        <div>
+          <h2 id="newsletter-title">Useful AI.<br />No noise.</h2>
+          <p>Get the free Starter Pack and one concise weekly note with workflows, tools and ideas worth testing.</p>
+        </div>
+        <a
+          class="newsletter-button"
+          href="https://hacks2.substack.com/subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="substack_subscribe_click"
+          data-analytics-label="Substack newsletter"
+          data-analytics-location="chatgpt_vs_claude"
+        >
+          Get the free pack <span>↗</span>
+        </a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <a href="/disclosure/">Editorial disclosure</a>
+      </footer>
+    </main>
+  </body>
+</html>
