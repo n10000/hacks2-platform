@@ -6,27 +6,35 @@ const measurementId = "G-F2VRQ1HXXT";
 <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
 <script define:vars={{ measurementId }}>
   window.dataLayer = window.dataLayer || [];
+
   function gtag() {
     window.dataLayer.push(arguments);
   }
+
   gtag("js", new Date());
   gtag("config", measurementId);
+
   document.addEventListener("click", (event) => {
     const clickedElement = event.target;
     if (!(clickedElement instanceof Element)) return;
 
-    const link = clickedElement.closest("a[data-analytics-event]");
-    if (!(link instanceof HTMLAnchorElement)) return;
+    const trackedElement = clickedElement.closest("[data-analytics-event]");
+    if (!(trackedElement instanceof HTMLElement)) return;
 
-    const eventName = link.dataset.analyticsEvent;
+    const eventName = trackedElement.dataset.analyticsEvent;
     if (!eventName) return;
 
-    gtag("event", eventName, {
-      event_category: "outbound",
-      event_label: link.dataset.analyticsLabel || link.textContent?.trim() || "Outbound link",
-      link_url: link.href,
-      link_location: link.dataset.analyticsLocation || "unknown",
+    const eventData = {
+      event_category: trackedElement instanceof HTMLAnchorElement ? "outbound" : "engagement",
+      event_label: trackedElement.dataset.analyticsLabel || trackedElement.textContent?.trim() || "Tracked interaction",
+      link_location: trackedElement.dataset.analyticsLocation || "unknown",
       transport_type: "beacon",
-    });
+    };
+
+    if (trackedElement instanceof HTMLAnchorElement) {
+      Object.assign(eventData, { link_url: trackedElement.href });
+    }
+
+    gtag("event", eventName, eventData);
   });
 </script>
