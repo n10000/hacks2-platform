@@ -25,7 +25,8 @@ const measurementId = "G-F2VRQ1HXXT";
     if (!eventName) return;
 
     const eventData = {
-      event_category: trackedElement instanceof HTMLAnchorElement ? "outbound" : "engagement",
+      event_category: trackedElement instanceof HTMLAnchorElement && trackedElement.origin !== window.location.origin
+            ? "outbound" : "engagement",
       event_label: trackedElement.dataset.analyticsLabel || trackedElement.textContent?.trim() || "Tracked interaction",
       link_location: trackedElement.dataset.analyticsLocation || "unknown",
       transport_type: "beacon",
