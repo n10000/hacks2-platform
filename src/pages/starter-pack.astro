@@ -2,12 +2,27 @@
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
-const packItems = [
-  ["01", "The operating loop", "A repeatable way to turn an AI task into a reliable process."],
-  ["02", "Prompt architecture", "The input structure that gets better outputs without endless rewrites."],
-  ["03", "Research-to-decision", "A practical workflow for turning scattered sources into a clear recommendation."],
-  ["04", "Automation ROI sheet", "A simple way to estimate whether an automation deserves your time and budget."],
-  ["05", "Weekly review ritual", "A 20-minute system for improving what you use instead of collecting more tools."],
+const inclusions = [
+  {
+    number: "01",
+    title: "Workflow map",
+    copy: "A practical way to identify the repeated work worth improving before you choose a tool.",
+  },
+  {
+    number: "02",
+    title: "Prompt patterns",
+    copy: "Clear starting structures for research, briefs, content, client work and internal decisions.",
+  },
+  {
+    number: "03",
+    title: "Tool fit check",
+    copy: "A lightweight method for deciding whether ChatGPT, Claude or another tool fits the task.",
+  },
+  {
+    number: "04",
+    title: "30-minute test",
+    copy: "A small experiment you can run this week without redesigning your whole operation.",
+  },
 ];
 ---
 
@@ -18,9 +33,10 @@ const packItems = [
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Get the free AI Workflow Starter Pack: five practical systems for better AI work, sharper decisions and useful automation."
+      content="Get the free AI Workflow Starter Pack: practical frameworks for finding, testing and improving AI-supported work."
     />
-    <title>Free AI Workflow Starter Pack — Hacks²</title>
+    <link rel="canonical" href="https://hacks2.com/starter-pack/" />
+    <title>AI Workflow Starter Pack — Hacks²</title>
     <GoogleAnalytics />
   </head>
   <body>
@@ -35,79 +51,97 @@ const packItems = [
           <a href="/tools/">Tools</a>
           <a href="/notes/">Field Notes</a>
         </div>
-        <a class="starter-nav-link" href="/">Index / 001</a>
+        <span class="nav-menu">Starter / 001</span>
       </nav>
 
-      <section class="starter-hero">
-        <div class="starter-orbit" aria-hidden="true"></div>
-        <p class="hero-kicker"><span class="pulse"></span> Free field kit / issue 001</p>
-        <p class="starter-eyebrow">For operators, founders and curious builders</p>
-        <h1>MAKE AI<br /><span>USEFUL <em>FIRST.</em></span></h1>
-        <div class="starter-hero-bottom">
-          <p>
-            Five practical AI workflows to help you move from random prompts and tool overload
-            to clearer work, better decisions and automations worth keeping.
-          </p>
-          <a
-            class="primary-link"
-            href="https://hacks2.substack.com/subscribe"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-analytics-event="starter_pack_subscribe_click"
-            data-analytics-label="AI Workflow Starter Pack"
-            data-analytics-location="starter_pack_hero"
-          >
-            Get the free pack <span class="arrow">↗</span>
-          </a>
+      <header class="starter-hero">
+        <p class="hero-kicker"><span class="pulse"></span> Free resource / practical AI</p>
+        <div class="starter-hero-grid">
+          <div>
+            <p class="starter-overline">H² Workflow Starter Pack</p>
+            <h1>MAKE AI<br />USEFUL<br /><em>THIS WEEK.</em></h1>
+          </div>
+          <div class="starter-hero-copy">
+            <p>
+              A concise field guide for turning scattered AI experiments into one
+              useful workflow — with clearer inputs, a sensible human check and a
+              result you can actually measure.
+            </p>
+            <a
+              class="starter-primary-link"
+              href="https://hacks2.substack.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event="starter_pack_cta_click"
+              data-analytics-label="Get the free AI Workflow Starter Pack"
+              data-analytics-location="starter_pack_hero"
+            >
+              Get the free pack <span>↗</span>
+            </a>
+            <small>Free via H² Signal. One concise weekly note; unsubscribe anytime.</small>
+          </div>
         </div>
-        <p class="starter-microcopy">Delivered through the Hacks² Signal on Substack. No spam. Unsubscribe anytime.</p>
+      </header>
+
+      <section class="starter-for" aria-labelledby="starter-for-title">
+        <span class="section-tag">Built for real work</span>
+        <h2 id="starter-for-title">NOT ANOTHER<br /><em>TOOL LIST.</em></h2>
+        <div>
+          <p>
+            The pack is for people who already know AI can help, but want a calmer
+            way to choose where it belongs in their day-to-day work.
+          </p>
+          <ul>
+            <li>Operators and founders reducing repeat admin</li>
+            <li>Teams improving research, briefs and client delivery</li>
+            <li>Professionals testing AI without adding unnecessary complexity</li>
+          </ul>
+        </div>
       </section>
 
-      <section class="starter-includes" aria-labelledby="pack-title">
+      <section class="starter-inclusions" aria-labelledby="inclusions-title">
         <div class="starter-section-heading">
           <span class="section-tag">Inside the pack</span>
-          <h2 id="pack-title">FIVE SYSTEMS.<br />ONE BETTER WAY<br />TO <em>WORK.</em></h2>
+          <h2 id="inclusions-title">FOUR PIECES.<br /><em>ONE CLEAR START.</em></h2>
         </div>
 
-        <ol class="starter-list">
-          {packItems.map(([number, title, description]) => (
-            <li>
-              <span>{number}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
-              <b aria-hidden="true">↘</b>
-            </li>
+        <div class="starter-inclusion-grid">
+          {inclusions.map((item) => (
+            <article>
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
           ))}
+        </div>
+      </section>
+
+      <section class="starter-process" aria-labelledby="process-title">
+        <div>
+          <span class="section-tag">How to use it</span>
+          <h2 id="process-title">PICK ONE<br /><em>REPEATED TASK.</em></h2>
+        </div>
+        <ol>
+          <li><span>01</span><p>Choose work that happens often enough to be worth improving.</p></li>
+          <li><span>02</span><p>Define the useful output and the points where a person needs to check it.</p></li>
+          <li><span>03</span><p>Run one small test, compare the result and keep only what reduces friction.</p></li>
         </ol>
       </section>
 
-      <section class="starter-proof">
-        <p class="section-tag">Why this exists</p>
-        <blockquote>
-          “The goal is not to use more AI. It is to build a small number of systems that make your work measurably better.”
-        </blockquote>
-        <p>
-          Hacks² documents workflows that survive contact with real work: clear inputs,
-          practical steps and outcomes you can assess.
-        </p>
-      </section>
-
-      <section class="starter-final-cta">
-        <span>H² / START HERE</span>
-        <h2>STOP<br />COLLECTING.<br /><em>START BUILDING.</em></h2>
-        <p>Subscribe once. Get the Starter Pack and the weekly signal for applied AI.</p>
+      <section class="starter-final">
+        <span class="section-tag">Start small. Keep what works.</span>
+        <h2>YOUR NEXT<br />USEFUL<br /><em>WORKFLOW.</em></h2>
+        <p>Get the Starter Pack, then use it on one task that matters this week.</p>
         <a
-          class="primary-link"
+          class="starter-final-button"
           href="https://hacks2.substack.com/subscribe"
           target="_blank"
           rel="noopener noreferrer"
-          data-analytics-event="starter_pack_subscribe_click"
-          data-analytics-label="AI Workflow Starter Pack"
-          data-analytics-location="starter_pack_final_cta"
+          data-analytics-event="starter_pack_cta_click"
+          data-analytics-label="Get the free AI Workflow Starter Pack"
+          data-analytics-location="starter_pack_final"
         >
-          Get the free pack <span class="arrow">↗</span>
+          Send me the free pack <span>↗</span>
         </a>
       </section>
 
