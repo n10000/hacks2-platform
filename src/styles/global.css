@@ -1154,7 +1154,7 @@ button { font: inherit; }
 .starter-inclusions { padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); background: var(--paper); color: var(--ink); }
 .starter-section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; margin-bottom: 60px; }
 .starter-inclusions .section-tag { color: #7560df; font-weight: 800; }
-.starter-inclusion-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(17,18,14,.25); }
+.starter-inclusion-grid { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(17,18,14,.25); }
 .starter-inclusion-grid article { min-height: 320px; padding: 25px; border-right: 1px solid rgba(17,18,14,.25); }
 .starter-inclusion-grid article:last-child { border-right: 0; background: var(--violet); }
 .starter-inclusion-grid span { color: #7560df; font-size: .7rem; font-weight: 900; letter-spacing: .14em; }
@@ -1171,6 +1171,12 @@ button { font: inherit; }
 .starter-final h2 em { color: var(--paper); }
 .starter-final > p { max-width: 490px; margin: 27px 0; color: rgba(17,18,14,.75); font-size: 1.08rem; }
 .starter-final-button { width: min(100%, 430px); background: var(--ink); color: var(--paper); }
+
+@media (max-width: 980px) and (min-width: 761px) {
+  .starter-inclusion-grid { grid-template-columns: repeat(2, 1fr); }
+  .starter-inclusion-grid article:nth-child(even) { border-right: 0; }
+  .starter-inclusion-grid article:last-child { border-right: 0; }
+}
 
 @media (max-width: 760px) {
   .starter-hero-grid,
