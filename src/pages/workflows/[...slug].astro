@@ -15,6 +15,10 @@ export async function getStaticPaths() {
 
 const { workflow } = Astro.props;
 const { Content } = await render(workflow);
+const relatedWorkflows = (await getCollection("workflows"))
+  .filter((item) => item.id !== workflow.id && item.data.category === workflow.data.category)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
 const publishedDate = workflow.data.publishedAt.toLocaleDateString("en-US", {
   month: "short",
   day: "numeric",
@@ -95,6 +99,21 @@ const publishedDate = workflow.data.publishedAt.toLocaleDateString("en-US", {
           </section>
         </div>
       </article>
+
+      {relatedWorkflows.length > 0 && (
+        <section class="article-next" aria-labelledby="related-workflows-title">
+          <span class="section-tag">Continue the system</span>
+          <h2 id="related-workflows-title">Related workflows</h2>
+          <div class="related-workflow-links">
+            {relatedWorkflows.map((related) => (
+              <a href={`/workflows/${related.id}/`}>
+                <span>{related.data.category}</span>
+                {related.data.title} <b aria-hidden="true">↗</b>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section class="article-next">
         <span class="section-tag">Keep building</span>
