@@ -265,6 +265,14 @@ button { font: inherit; }
 .article-header > p { max-width: 620px; color: #c6c7bc; font-family: Georgia, serif; font-size: clamp(1.1rem, 2vw, 1.42rem); line-height: 1.5; }
 .article-meta { display: flex; gap: 26px; margin-top: 36px; color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
 
+.workflow-visual {
+  grid-column: 1 / -1;
+  max-width: 1180px;
+  margin: 4px 0 clamp(12px, 3vw, 34px);
+}
+.workflow-visual img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.workflow-visual figcaption { margin-top: 10px; color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+
 .article-rail { padding-top: 14px; font-size: .82rem; }
 .article-rail > div { padding: 18px 0; border-top: 1px solid var(--line); }
 .article-rail span { color: var(--acid); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
