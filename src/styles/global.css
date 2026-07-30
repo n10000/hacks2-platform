@@ -291,6 +291,11 @@ button { font: inherit; }
 .article-next { padding: 80px clamp(20px, 8vw, 140px); background: var(--paper); color: var(--ink); }
 .article-next a { display: block; max-width: 900px; margin-top: 18px; font-size: clamp(2.8rem, 7vw, 7rem); font-weight: 900; line-height: .82; letter-spacing: -.08em; text-transform: uppercase; }
 .article-next a span { color: #7560df; }
+.article-next h2 { max-width: 900px; margin: 16px 0 0; font-size: clamp(2.8rem, 7vw, 7rem); font-weight: 900; line-height: .82; letter-spacing: -.08em; text-transform: uppercase; }
+.related-workflow-links { display: grid; max-width: 900px; margin-top: 36px; border-top: 1px solid #b7b7aa; }
+.article-next .related-workflow-links a { display: grid; grid-template-columns: minmax(130px, .35fr) 1fr auto; gap: 18px; align-items: baseline; max-width: none; margin: 0; padding: 18px 0; border-bottom: 1px solid #b7b7aa; font-size: clamp(1.15rem, 2vw, 1.8rem); font-weight: 800; line-height: 1; letter-spacing: -.04em; text-transform: none; }
+.article-next .related-workflow-links a span { color: #7560df; font-family: Georgia, serif; font-size: .8rem; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.article-next .related-workflow-links a b { color: #7560df; }
 
 @media (max-width: 760px) {
   .workflow-card { grid-template-columns: 1fr; gap: 16px; }
@@ -298,6 +303,8 @@ button { font: inherit; }
   .article-shell { grid-template-columns: 1fr; }
   .article-header { grid-column: auto; }
   .article-rail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .article-next .related-workflow-links a { grid-template-columns: 1fr auto; }
+  .article-next .related-workflow-links a span { grid-column: 1 / -1; }
   .tool-snapshot { grid-template-columns: 1fr; }
   .tool-snapshot > div + div { border-top: 1px solid var(--line); border-left: 0; }
 }
