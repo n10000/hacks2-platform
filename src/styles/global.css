@@ -74,6 +74,8 @@ button { font: inherit; }
 .nav-links { display: flex; gap: clamp(14px, 2.4vw, 34px); font-size: .78rem; letter-spacing: .11em; text-transform: uppercase; }
 .nav-links a { opacity: .68; transition: opacity .2s ease; }
 .nav-links a:hover { opacity: 1; }
+.nav-links .nav-product-link { padding: 5px 8px; color: var(--ink); background: var(--acid); opacity: 1; }
+.nav-links .nav-product-link:hover { background: var(--cyan); }
 .nav-menu { display: none; }
 
 .hero { position: relative; min-height: 760px; padding: clamp(55px, 8vw, 135px) clamp(20px, 8vw, 140px) 80px; }
@@ -158,6 +160,17 @@ button { font: inherit; }
 .ticker { position: relative; z-index: 2; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--acid); color: var(--ink); }
 .ticker-track { display: flex; width: max-content; gap: 30px; padding: 15px 0; font-size: .84rem; font-weight: 900; letter-spacing: .16em; white-space: nowrap; text-transform: uppercase; animation: crawl 32s linear infinite; }
 @keyframes crawl { to { transform: translateX(-25%); } }
+
+.product-promo { display: grid; grid-template-columns: minmax(125px, .36fr) minmax(300px, 1.24fr) minmax(195px, .5fr); gap: clamp(28px, 5vw, 76px); align-items: end; padding: clamp(50px, 8vw, 104px) clamp(20px, 8vw, 140px); border-bottom: 1px solid var(--line); background: linear-gradient(105deg, rgba(168,147,255,.2), rgba(121,232,244,.08)); }
+.product-promo-index { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; color: var(--cyan); font-size: .7rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.product-promo-index strong { color: var(--paper); font-size: clamp(3.4rem, 6vw, 6rem); letter-spacing: -.09em; line-height: .76; }
+.product-promo-copy h2 { margin: 18px 0; font-size: clamp(2.8rem, 5.2vw, 5.9rem); line-height: .8; letter-spacing: -.08em; text-transform: uppercase; }
+.product-promo-copy h2 em { color: var(--acid); font-style: normal; }
+.product-promo-copy p { max-width: 570px; margin: 0; color: #d2d2ca; font-family: Georgia, serif; font-size: 1.05rem; line-height: 1.55; }
+.product-promo-action { display: grid; gap: 18px; justify-items: start; color: var(--acid); font-size: .77rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.product-promo-action a { display: flex; justify-content: space-between; gap: 30px; width: 100%; padding: 16px 18px; background: var(--acid); color: var(--ink); transition: transform .2s ease, background .2s ease; }
+.product-promo-action a:hover { background: var(--cyan); transform: translate(4px, -4px); }
+.product-promo-action b { font-size: 1.25rem; line-height: .75; }
 
 .section { position: relative; z-index: 1; padding: clamp(80px, 12vw, 160px) clamp(20px, 8vw, 140px); }
 .section-tag { color: var(--acid); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; }
@@ -496,6 +509,13 @@ button { font: inherit; }
 .workflow-subscribe p { max-width: 520px; color: #4d4f4a; }
 .workflow-subscribe a { display: inline-flex; gap: 12px; margin-top: 6px; padding: 13px 17px; background: var(--ink); color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .workflow-subscribe a span { color: var(--acid); font-size: 1.1rem; }
+.workflow-product-cta { margin-top: 22px; padding: 32px; border: 1px solid rgba(121,232,244,.55); background: linear-gradient(135deg, rgba(121,232,244,.11), rgba(168,147,255,.12)); }
+.workflow-product-cta h2 { margin: 17px 0 12px; font-size: clamp(2.2rem, 4.2vw, 4rem); line-height: .83; letter-spacing: -.07em; text-transform: uppercase; }
+.workflow-product-cta h2 em { color: var(--acid); font-style: normal; }
+.workflow-product-cta p { max-width: 570px; margin: 0; color: #d2d2ca; font-family: Georgia, serif; line-height: 1.55; }
+.workflow-product-cta a { display: inline-flex; gap: 12px; margin-top: 22px; padding: 13px 17px; background: var(--acid); color: var(--ink); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transition: transform .2s ease, background .2s ease; }
+.workflow-product-cta a:hover { background: var(--cyan); transform: translate(4px, -4px); }
+.workflow-product-cta a span { font-size: 1.1rem; }
 @media (max-width: 760px) {
   .brief-steps { grid-template-columns: 1fr; }
   .brief-steps li { min-height: 0; }
@@ -503,6 +523,9 @@ button { font: inherit; }
   .brief-copy-head { align-items: start; flex-direction: column; }
   .brief-template { min-height: 620px; padding: 14px; font-size: .76rem; }
   .related-workflow { padding: 24px 20px; }
+  .product-promo { grid-template-columns: 1fr; gap: 28px; }
+  .product-promo-index { flex-direction: row; align-items: end; }
+  .product-promo-index strong { font-size: 3.8rem; }
 }
 
 /* AI Workflow Starter Pack */
