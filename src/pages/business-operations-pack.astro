@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+
+const paymentLink = import.meta.env.PUBLIC_STRIPE_BUSINESS_OPERATIONS_PACK_PAYMENT_LINK;
+
+const inclusions = [
+  ["01", "Workflow map", "A decision filter for choosing repeated work worth improving before you automate it."],
+  ["02", "Six operating systems", "Lead qualification, client onboarding, meeting actions, SOPs and a weekly improvement loop."],
+  ["03", "Copy-ready prompts", "Clear prompts that preserve uncertainty instead of inventing scope, dates, prices or commitments."],
+  ["04", "Six working templates", "Simple formats for mapping a workflow, reviewing leads, tracking actions and keeping SOPs alive."],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="AI Business Operations Pack: six practical AI workflow systems, prompts and templates for founders, operators and small teams." />
+    <link rel="canonical" href="https://hacks2.com/business-operations-pack/" />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="AI Business Operations Pack - Hacks²" />
+    <meta property="og:description" content="Six practical AI workflow systems, prompts and templates for calmer small-business operations." />
+    <meta property="og:url" content="https://hacks2.com/business-operations-pack/" />
+    <meta property="og:image" content="https://hacks2.com/images/hacks2-workflow-system.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI Business Operations Pack - Hacks²" />
+    <meta name="twitter:description" content="Six practical AI workflow systems, prompts and templates for calmer small-business operations." />
+    <meta name="twitter:image" content="https://hacks2.com/images/hacks2-workflow-system.jpg" />
+    <title>AI Business Operations Pack - Hacks²</title>
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <main class="page-shell product-page">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home"><span class="mark">H²</span><span>Hacks² / Applied AI</span></a>
+        <div class="nav-links"><a href="/workflows/">Workflows</a><a href="/tools/">Tools</a><a href="/notes/">Field Notes</a></div>
+        <span class="nav-menu">Pack / 001</span>
+      </nav>
+
+      <header class="product-hero">
+        <div>
+          <p class="hero-kicker"><span class="pulse"></span> Paid field guide / 001</p>
+          <p class="product-overline">H² AI Business Operations Pack</p>
+          <h1>MAKE AI<br />PART OF THE<br /><em>WORK.</em></h1>
+        </div>
+        <div class="product-purchase-card">
+          <p class="product-price">€29 <span>one-time</span></p>
+          <p>A focused PDF field guide with six systems, copy-ready prompts and working templates for the operational work that repeats every week.</p>
+          {paymentLink ? (
+            <a class="product-buy-button" href={paymentLink} target="_blank" rel="noopener noreferrer" data-analytics-event="business_operations_pack_checkout_click" data-analytics-label="Buy AI Business Operations Pack" data-analytics-location="product_hero">Buy securely via Stripe <span>↗</span></a>
+          ) : (
+            <span class="product-release-note">Secure Stripe checkout will appear here at release.</span>
+          )}
+          <small>Digital PDF · English · Immediate delivery after payment</small>
+        </div>
+      </header>
+
+      <section class="product-intro" aria-labelledby="product-intro-title">
+        <span class="section-tag">Built for real work</span>
+        <h2 id="product-intro-title">NOT A TOOL LIST.<br /><em>AN OPERATING LAYER.</em></h2>
+        <p>For founders, operators and small teams who know AI can help, but want it to reduce repeat admin without creating a fragile collection of disconnected tools.</p>
+      </section>
+
+      <section class="product-inclusions" aria-labelledby="product-inclusions-title">
+        <div><span class="section-tag">Inside the pack</span><h2 id="product-inclusions-title">SYSTEMS YOU<br /><em>CAN USE TODAY.</em></h2></div>
+        <div class="product-inclusion-grid">
+          {inclusions.map(([number, title, copy]) => <article><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
+        </div>
+      </section>
+
+      <section class="product-workflow" aria-labelledby="product-workflow-title">
+        <div><span class="section-tag">The operating rule</span><h2 id="product-workflow-title">HUMANS KEEP<br /><em>THE DECISION.</em></h2></div>
+        <div>
+          <p>Use AI to organise, draft and make a first pass. A person still reviews anything that can change a customer commitment, payment, contract, price or public claim.</p>
+          <ol><li><span>01</span><p>Map the repeated task and its current cost.</p></li><li><span>02</span><p>Run one bounded real-world example.</p></li><li><span>03</span><p>Compare quality, keep one improvement and record the result next week.</p></li></ol>
+        </div>
+      </section>
+
+      <section class="product-final">
+        <span class="section-tag">One task. One useful change.</span>
+        <h2>STOP<br />EXPERIMENTING.<br /><em>START OPERATING.</em></h2>
+        <p>AI Business Operations Pack · €29 one-time · Digital PDF</p>
+        {paymentLink ? (
+          <a class="product-final-button" href={paymentLink} target="_blank" rel="noopener noreferrer" data-analytics-event="business_operations_pack_checkout_click" data-analytics-label="Buy AI Business Operations Pack" data-analytics-location="product_final">Get the pack via Stripe <span>↗</span></a>
+        ) : <span class="product-release-note product-release-note-light">Checkout opens with the product release.</span>}
+        <small>By purchasing, you agree to the <a href="/refund-policy/">digital product refund policy</a>.</small>
+      </section>
+
+      <footer class="footer"><span>© 2026 Hacks²</span><span>Built for applied intelligence</span><a href="/disclosure/">Editorial disclosure</a></footer>
+    </main>
+  </body>
+</html>
