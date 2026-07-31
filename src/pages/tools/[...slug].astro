@@ -19,6 +19,8 @@ const affiliateLinks: Record<string, string | undefined> = {};
 const affiliateUrl = affiliateLinks[tool.id];
 const outboundUrl = affiliateUrl ?? tool.data.website;
 const linkLabel = affiliateUrl ? "Affiliate link" : "Official website";
+const canonicalUrl = new URL(`/tools/${tool.id}/`, Astro.site);
+const socialImageUrl = new URL("/images/hacks2-workflow-system.jpg", Astro.site);
 ---
 
 <!doctype html>
@@ -28,6 +30,21 @@ const linkLabel = affiliateUrl ? "Affiliate link" : "Official website";
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={tool.data.description} />
     <title>{tool.data.title} — Tools — Hacks²</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hacks²" />
+    <meta property="og:title" content={`${tool.data.title} — Tools — Hacks²`} />
+    <meta property="og:description" content={tool.data.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1730" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Abstract system turning scattered inputs into a repeatable workflow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${tool.data.title} — Tools — Hacks²`} />
+    <meta name="twitter:description" content={tool.data.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content="Abstract system turning scattered inputs into a repeatable workflow" />
     <GoogleAnalytics />
   </head>
   <body>

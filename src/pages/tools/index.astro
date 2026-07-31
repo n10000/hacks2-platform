@@ -22,6 +22,21 @@ const toolContext: Record<string, { number: string; signal: string; useWhen: str
     signal: "Knowledge system",
     useWhen: "You need to keep decisions, templates and recurring work visible after the AI conversation ends.",
   },
+  make: {
+    number: "04",
+    signal: "Visual automation",
+    useWhen: "You need to connect several tools in a workflow that your team can see, inspect and improve.",
+  },
+  zapier: {
+    number: "05",
+    signal: "Fast app handoffs",
+    useWhen: "You need a straightforward automation across everyday business apps with a low-friction start.",
+  },
+  n8n: {
+    number: "06",
+    signal: "Technical control",
+    useWhen: "You need custom logic or more control over how an important automation is operated.",
+  },
 };
 
 const startingPoints = [
@@ -45,6 +60,13 @@ const startingPoints = [
     answer: "Start with Notion.",
     detail: "Use it to retain the decisions, templates and next actions worth repeating.",
     href: "/tools/notion/",
+  },
+  {
+    number: "04",
+    question: "The same information keeps moving between apps by hand.",
+    answer: "Start with Make or Zapier.",
+    detail: "Choose Make for a visible multi-step process, Zapier for a quick and simple app handoff.",
+    href: "/tools/make/",
   },
 ];
 ---
@@ -113,7 +135,7 @@ const startingPoints = [
         <div class="tools-section-heading">
           <span class="section-tag">Start here</span>
           <h2 id="starting-points-title">PICK THE<br /><em>PROBLEM.</em></h2>
-          <p>You do not need all three tools on day one. Pick the one closest to the work that is already blocking you.</p>
+          <p>You do not need every tool on day one. Pick the one closest to the work that is already blocking you.</p>
         </div>
 
         <ol class="starting-point-list">
@@ -135,7 +157,7 @@ const startingPoints = [
         <div class="tools-index-header">
           <div>
             <span class="section-tag">The shortlist</span>
-            <h2 id="tools-index-title">THREE TOOLS.<br />THREE DISTINCT<br /><em>ROLES.</em></h2>
+            <h2 id="tools-index-title">SIX TOOLS.<br />SIX DISTINCT<br /><em>ROLES.</em></h2>
           </div>
           <p>
             These are the tools we would start with for a lean, capable applied-AI setup.
@@ -192,9 +214,9 @@ const startingPoints = [
           </div>
           <span class="stack-arrow" aria-hidden="true">→</span>
           <div>
-            <span>03 / Improve</span>
-            <h3>Weekly review</h3>
-            <p>Remove what does not help, refine what does and keep the stack intentionally small.</p>
+            <span>03 / Connect</span>
+            <h3>Make, Zapier or n8n</h3>
+            <p>Automate a proven handoff, keep review where it matters and improve the system weekly.</p>
           </div>
         </div>
       </section>
