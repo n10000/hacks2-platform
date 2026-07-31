@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
-const paymentLink = import.meta.env.PUBLIC_STRIPE_BUSINESS_OPERATIONS_PACK_PAYMENT_LINK;
+const paymentLink = "https://buy.stripe.com/8x28wP4vP0yxcga5JT1oI00";
 
 const inclusions = [
   ["01", "Workflow map", "A decision filter for choosing repeated work worth improving before you automate it."],
@@ -53,7 +53,7 @@ const inclusions = [
           ) : (
             <span class="product-release-note">Secure Stripe checkout will appear here at release.</span>
           )}
-          <small>Digital PDF · English · Immediate delivery after payment</small>
+          <small>Digital PDF · English · Delivery instructions sent after payment</small>
         </div>
       </header>
 
@@ -85,7 +85,7 @@ const inclusions = [
         {paymentLink ? (
           <a class="product-final-button" href={paymentLink} target="_blank" rel="noopener noreferrer" data-analytics-event="business_operations_pack_checkout_click" data-analytics-label="Buy AI Business Operations Pack" data-analytics-location="product_final">Get the pack via Stripe <span>↗</span></a>
         ) : <span class="product-release-note product-release-note-light">Checkout opens with the product release.</span>}
-        <small>By purchasing, you agree to the <a href="/refund-policy/">digital product refund policy</a>.</small>
+        <small>By purchasing, you agree to the <a href="/refund-policy/">digital product refund policy</a>. Purchase support: <a href="mailto:hello@hacks2.com">hello@hacks2.com</a>.</small>
       </section>
 
       <footer class="footer"><span>© 2026 Hacks²</span><span>Built for applied intelligence</span><a href="/disclosure/">Editorial disclosure</a></footer>
