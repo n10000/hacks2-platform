@@ -1,6 +1,6 @@
 ---
 import "../../styles/global.css";
-import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import "../../components/GoogleAnalytics.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -14,8 +14,10 @@ export async function getStaticPaths() {
 
 const { tool } = Astro.props;
 const { Content } = await render(tool);
-// Add an approved affiliate URL for a tool here only after the partnership is live.
-const affiliateLinks: Record<string, string | undefined> = {};
+// Keep only approved, live partner URLs here. Unapproved tools use their official website URL.
+const affiliateLinks: Record<string, string | undefined> = {
+  make: "https://www.make.com/en/register?pc=hacks2",
+};
 const affiliateUrl = affiliateLinks[tool.id];
 const outboundUrl = affiliateUrl ?? tool.data.website;
 const linkLabel = affiliateUrl ? "Affiliate link" : "Official website";
@@ -114,4 +116,3 @@ const socialImageUrl = new URL("/images/hacks2-workflow-system.jpg", Astro.site)
     </main>
   </body>
 </html>
-
