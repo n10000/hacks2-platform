@@ -100,6 +100,15 @@ const socialImageUrl = new URL("/images/hacks2-workflow-system.jpg", Astro.site)
           </section>}
           <p class="affiliate-notice">{affiliateUrl ? "This page contains an affiliate link. Hacks² may earn a commission at no extra cost to you." : "This is a direct link to the official website. Hacks² does not currently earn a commission from this link."} <a href="/disclosure/">Read the policy ↗</a></p>
           <div class="article-content"><Content /></div>
+          {affiliateUrl && <section class="tool-action-panel" aria-labelledby="tool-action-title">
+            <span class="section-tag">Ready to test the workflow?</span>
+            <h2 id="tool-action-title">Start with the tool.<br /><em>Build with intent.</em></h2>
+            <p>Use Make for one visible, reviewable handoff before you automate a larger system. Keep the first scenario small, name every step and review the result weekly.</p>
+            <div class="tool-action-links">
+              <a class="primary-link" href={affiliateUrl} target="_blank" rel="sponsored noreferrer" data-analytics-event="tool_affiliate_cta_click" data-analytics-label={tool.data.title} data-analytics-location="tool_article_cta">Start with {tool.data.title} <span class="arrow">↗</span></a>
+              <a class="secondary-link" href="/business-operations-pack/" data-analytics-event="business_operations_pack_internal_click" data-analytics-label="Explore AI Business Operations Pack" data-analytics-location="tool_article_cta">Explore the Operations Pack <span class="arrow">↗</span></a>
+            </div>
+          </section>}
         </div>
       </article>
 
