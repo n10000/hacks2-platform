@@ -355,6 +355,18 @@ button { font: inherit; }
 .affiliate-notice { max-width: 720px; margin: 0 0 35px; padding: 15px 18px; border-left: 3px solid var(--cyan); color: var(--muted); background: rgba(121,232,244,.06); font-family: Georgia, serif; font-size: .94rem; line-height: 1.55; }
 .affiliate-notice a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 
+.tool-action-panel {
+  margin-top: 64px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--cyan);
+  background: linear-gradient(135deg, rgba(121,232,244,.09), rgba(215,255,54,.05));
+}
+.tool-action-panel h2 { margin: 18px 0 16px; color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .84; letter-spacing: -.08em; text-transform: uppercase; }
+.tool-action-panel h2 em { color: var(--acid); font-style: normal; }
+.tool-action-panel > p { max-width: 650px; margin: 0; color: var(--muted); font-family: Georgia, serif; line-height: 1.6; }
+.tool-action-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; align-items: center; }
+.tool-action-links .primary-link, .tool-action-links .secondary-link { display: inline-flex; align-items: center; gap: 10px; }
+
 .article-content { max-width: 720px; font-family: Georgia, serif; color: #d9dad0; font-size: 1.1rem; line-height: 1.72; }
 .article-content h2 { margin: 64px 0 18px; color: var(--paper); font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; font-size: clamp(2rem, 3vw, 3.3rem); line-height: .9; letter-spacing: -.06em; text-transform: uppercase; }
 .article-content p { margin: 0 0 24px; }
