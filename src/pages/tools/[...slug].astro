@@ -1,6 +1,6 @@
 ---
 import "../../styles/global.css";
-import "../../components/GoogleAnalytics.astro";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -116,3 +116,4 @@ const socialImageUrl = new URL("/images/hacks2-workflow-system.jpg", Astro.site)
     </main>
   </body>
 </html>
+
