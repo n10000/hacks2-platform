@@ -1,0 +1,161 @@
+---
+import "../styles/global.css";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+
+const templates = [
+  {
+    number: "01",
+    category: "Start here",
+    title: "AI task brief",
+    description: "Give an AI tool the context, constraints and definition of a useful result before asking it to do the work.",
+    href: "/starter-pack/",
+    link: "Open the free starting point",
+  },
+  {
+    number: "02",
+    category: "Research",
+    title: "Research-to-decision brief",
+    description: "Turn source material into a defensible recommendation by separating facts, inferences, uncertainties and next action.",
+    href: "/workflows/ai-research-to-decision/",
+    link: "Use the decision brief",
+  },
+  {
+    number: "03",
+    category: "Operations",
+    title: "Weekly AI review",
+    description: "Review what saved time, where human correction was needed and which one workflow improvement to keep next week.",
+    href: "/workflows/weekly-ai-operations-review/",
+    link: "Build the review ritual",
+  },
+  {
+    number: "04",
+    category: "Automation",
+    title: "Automation ROI check",
+    description: "Estimate whether a repeated task saves enough time to justify building, maintaining and reviewing an automation.",
+    href: "/roi-calculator/",
+    link: "Run the ROI calculator",
+  },
+];
+
+const faqs = [
+  ["What is an AI workflow template?", "It is a reusable structure for a task: the inputs, context, checks and output shape that make AI-assisted work more consistent."],
+  ["Should I automate every repeated task?", "No. Start with a task that happens often, has a clear output and can be checked by a person. Estimate the value before adding maintenance overhead."],
+  ["Where should I start?", "Use the AI task brief for a new experiment, then use the research-to-decision brief when the work affects a meaningful choice."],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Practical AI workflow templates for task briefs, research, decisions, reviews and automation ROI — built for real work." />
+    <link rel="canonical" href="https://hacks2.com/ai-workflow-templates/" />
+    <title>AI Workflow Templates for Real Work — Hacks²</title>
+    <GoogleAnalytics />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    })} />
+  </head>
+  <body>
+    <main class="page-shell templates-page">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Hacks squared home">
+          <span class="mark">H²</span>
+          <span>Hacks² / Applied AI</span>
+        </a>
+        <div class="nav-links">
+          <a href="/workflows/">Workflows</a>
+          <a href="/tools/">Tools</a>
+          <a href="/notes/">Field Notes</a>
+          <a href="/starter-pack/">Starter Pack</a>
+          <a class="nav-product-link" href="/business-operations-pack/">Operations Pack</a>
+        </div>
+        <span class="nav-menu">Templates / 001</span>
+      </nav>
+
+      <header class="templates-hero">
+        <span class="hero-kicker"><span class="pulse"></span> H² template index / practical AI</span>
+        <h1>AI WORKFLOWS<br />THAT <em>HOLD UP.</em></h1>
+        <p>Reusable starting points for turning AI from a clever response into work with clear inputs, human checks and a useful next action.</p>
+        <div class="templates-hero-actions">
+          <a class="primary-link" href="/starter-pack/" data-analytics-event="starter_pack_internal_click" data-analytics-label="Get the free Starter Pack" data-analytics-location="templates_hero">Get the free Starter Pack <span class="arrow">↘</span></a>
+          <span>Free templates / no tool lock-in</span>
+        </div>
+      </header>
+
+      <section class="templates-intro" aria-labelledby="templates-intro-title">
+        <div>
+          <span class="section-tag">The useful distinction</span>
+          <h2 id="templates-intro-title">A prompt is<br /><em>one moment.</em></h2>
+        </div>
+        <p>A workflow template captures the surrounding system: what goes in, what AI can help with, what a person must verify and where the final output belongs. That makes it easier to repeat, improve and stop when it no longer pays off.</p>
+      </section>
+
+      <section class="templates-grid-section" aria-labelledby="template-grid-title">
+        <div class="templates-section-heading">
+          <span class="section-tag">Copy-ready systems</span>
+          <h2 id="template-grid-title">Choose the<br /><em>next useful move.</em></h2>
+        </div>
+        <div class="templates-grid">
+          {templates.map((template) => (
+            <article class="template-index-card">
+              <span class="template-index-number">{template.number}</span>
+              <span class="template-index-category">{template.category}</span>
+              <h3>{template.title}</h3>
+              <p>{template.description}</p>
+              <a href={template.href} data-analytics-event="workflow_template_click" data-analytics-label={template.title} data-analytics-location="templates_index">{template.link} <b>↗</b></a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="templates-rules" aria-labelledby="templates-rules-title">
+        <span class="section-tag">Before you automate</span>
+        <h2 id="templates-rules-title">Three rules for<br /><em>useful AI work.</em></h2>
+        <ol>
+          <li><strong>01 / Name the output</strong><span>If you cannot describe what good looks like, the tool cannot reliably help you get there.</span></li>
+          <li><strong>02 / Keep the human check</strong><span>Make approval, source verification and judgment visible wherever a mistake has consequences.</span></li>
+          <li><strong>03 / Measure the friction</strong><span>Keep a workflow when it improves time, quality or consistency — not simply because it uses AI.</span></li>
+        </ol>
+      </section>
+
+      <section class="templates-faq" aria-labelledby="templates-faq-title">
+        <div>
+          <span class="section-tag">Field notes / FAQ</span>
+          <h2 id="templates-faq-title">Start with<br /><em>the task.</em></h2>
+        </div>
+        <div class="templates-faq-list">
+          {faqs.map(([question, answer]) => (
+            <details>
+              <summary>{question}<span>+</span></summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="templates-final" aria-labelledby="templates-final-title">
+        <span class="section-tag">H² Signal / weekly</span>
+        <h2 id="templates-final-title">Get the useful<br /><em>starting layer.</em></h2>
+        <p>The free AI Workflow Starter Pack brings the core templates together with a simple process for testing one repeated task this week.</p>
+        <div class="templates-final-actions">
+          <a class="templates-substack-link" href="https://hacks2.substack.com/subscribe" target="_blank" rel="noopener noreferrer" data-analytics-event="substack_subscribe_click" data-analytics-label="Substack newsletter" data-analytics-location="templates_final">Subscribe and get the free pack <span>↗</span></a>
+          <a class="templates-paid-link" href="/business-operations-pack/" data-analytics-event="business_operations_pack_internal_click" data-analytics-label="Explore AI Business Operations Pack" data-analytics-location="templates_final">Need a deeper operating layer? Explore Operations Pack <span>↗</span></a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Hacks²</span>
+        <span>Built for applied intelligence</span>
+        <a href="/disclosure/">Editorial disclosure</a>
+      </footer>
+    </main>
+  </body>
+</html>
