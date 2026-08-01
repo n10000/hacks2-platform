@@ -1281,6 +1281,51 @@ button { font: inherit; }
 .starter-template-card pre { min-height: 180px; margin: 0; padding: 17px; overflow-x: auto; white-space: pre-wrap; color: var(--ink); background: var(--paper); font: .78rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .starter-product-link { display: inline-flex; gap: 10px; margin: 0 0 24px; color: var(--ink); font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
 .starter-product-link span { color: #7560df; font-size: 1.15rem; }
+
+/* AI workflow templates index */
+.templates-hero { padding: clamp(85px, 13vw, 175px) clamp(20px, 8vw, 140px) clamp(75px, 10vw, 135px); background: radial-gradient(circle at 82% 15%, rgba(121,232,244,.16), transparent 25rem), radial-gradient(circle at 15% 80%, rgba(168,147,255,.2), transparent 28rem); }
+.templates-hero h1 { max-width: 1050px; margin: 34px 0 30px; font-size: clamp(4.1rem, 10vw, 10rem); line-height: .77; letter-spacing: -.095em; text-transform: uppercase; }
+.templates-hero h1 em, .templates-intro h2 em, .templates-section-heading h2 em, .templates-rules h2 em, .templates-faq h2 em, .templates-final h2 em { color: var(--acid); font-style: normal; }
+.templates-hero > p { max-width: 640px; margin: 0; color: #c6c7bc; font-family: Georgia, serif; font-size: 1.16rem; line-height: 1.6; }
+.templates-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 38px; }
+.templates-hero-actions > span { color: var(--muted); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; }
+.templates-intro, .templates-faq { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(280px, 1.2fr); gap: clamp(50px, 11vw, 180px); padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); }
+.templates-intro { background: var(--paper); color: var(--ink); }
+.templates-intro .section-tag { color: #7560df; font-weight: 800; }
+.templates-intro h2, .templates-section-heading h2, .templates-rules h2, .templates-faq h2, .templates-final h2 { margin: 18px 0 0; font-size: clamp(3rem, 6vw, 6.2rem); line-height: .83; letter-spacing: -.078em; text-transform: uppercase; }
+.templates-intro h2 em { color: #7560df; }
+.templates-intro > p { max-width: 560px; margin: 0; padding-top: 16px; border-top: 1px solid rgba(17,18,14,.25); font-family: Georgia, serif; font-size: 1.08rem; line-height: 1.65; }
+.templates-grid-section { padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); }
+.templates-section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; margin-bottom: 58px; }
+.templates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.template-index-card { display: grid; grid-template-columns: auto 1fr; gap: 0 18px; min-height: 310px; padding: 27px; border: 1px solid var(--line); background: rgba(121,232,244,.055); }
+.template-index-number { color: var(--cyan); font-size: .7rem; font-weight: 900; letter-spacing: .13em; }
+.template-index-category { justify-self: end; color: var(--muted); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+.template-index-card h3 { grid-column: 1 / -1; align-self: end; margin: 70px 0 14px; color: var(--paper); font-size: clamp(2rem, 4vw, 4rem); line-height: .86; letter-spacing: -.07em; text-transform: uppercase; }
+.template-index-card p { grid-column: 1 / -1; max-width: 500px; margin: 0 0 24px; color: #c6c7bc; font-family: Georgia, serif; line-height: 1.55; }
+.template-index-card a { grid-column: 1 / -1; align-self: end; color: var(--acid); font-size: .74rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.template-index-card a b { margin-left: 8px; font-size: 1.1rem; }
+.templates-rules { padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); background: rgba(168,147,255,.14); }
+.templates-rules ol { max-width: 900px; margin: 65px 0 0 auto; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.templates-rules li { display: grid; grid-template-columns: minmax(180px, .65fr) 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.templates-rules strong { color: var(--cyan); font-size: .76rem; letter-spacing: .11em; text-transform: uppercase; }
+.templates-rules li span { max-width: 500px; color: #c6c7bc; font-family: Georgia, serif; line-height: 1.55; }
+.templates-faq { background: rgba(121,232,244,.05); }
+.templates-faq-list { border-top: 1px solid var(--line); }
+.templates-faq details { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.templates-faq summary { display: flex; justify-content: space-between; gap: 20px; cursor: pointer; color: var(--paper); font-size: 1.1rem; font-weight: 800; }
+.templates-faq summary span { color: var(--cyan); font-size: 1.4rem; font-weight: 400; }
+.templates-faq details p { max-width: 560px; margin: 18px 0 0; color: #c6c7bc; font-family: Georgia, serif; line-height: 1.6; }
+.templates-final { padding: clamp(90px, 13vw, 175px) clamp(20px, 8vw, 140px); background: var(--acid); color: var(--ink); }
+.templates-final .section-tag { color: var(--ink); font-weight: 800; }
+.templates-final h2 em { color: var(--violet); }
+.templates-final > p { max-width: 560px; margin: 28px 0; color: rgba(17,18,14,.75); font-family: Georgia, serif; font-size: 1.08rem; line-height: 1.6; }
+.templates-final-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.templates-substack-link, .templates-paid-link { display: inline-flex; gap: 14px; padding: 16px 18px; font-size: .74rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.templates-substack-link { background: var(--ink); color: var(--paper); }
+.templates-paid-link { border-bottom: 1px solid var(--ink); }
+.templates-substack-link span, .templates-paid-link span { font-size: 1.15rem; }
+
 .starter-final { padding: clamp(90px, 13vw, 175px) clamp(20px, 8vw, 140px); background: var(--violet); color: var(--ink); }
 .starter-final .section-tag { color: var(--ink); font-weight: 800; }
 .starter-final h2 { max-width: 860px; }
@@ -1303,6 +1348,11 @@ button { font: inherit; }
   .starter-template-grid { grid-template-columns: 1fr; }
   .starter-template-heading p { margin-top: 0; }
   .starter-template-card > p { min-height: 0; }
+  .templates-intro, .templates-faq, .templates-section-heading { grid-template-columns: 1fr; }
+  .templates-grid { grid-template-columns: 1fr; }
+  .templates-rules ol { margin-top: 48px; }
+  .templates-rules li { grid-template-columns: 1fr; gap: 13px; }
+  .template-index-card h3 { margin-top: 48px; }
   .starter-hero-grid,
   .starter-for,
   .starter-process { gap: 48px; }
