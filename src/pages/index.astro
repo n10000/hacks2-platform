@@ -13,6 +13,62 @@ const protocols = [
   ["Tool Index", "The stack behind faster decisions."],
   ["Field Notes", "Signals collected while building."],
 ];
+
+const homepageFaq = [
+  {
+    question: "Who edits Hacks²?",
+    answer: "Nikolay Hristov is the editor of Hacks². He focuses the publication on practical AI workflows, clear tool judgment and systems that can be tested in real work.",
+  },
+  {
+    question: "How does Hacks² evaluate AI tools?",
+    answer: "Every recommendation starts with a real use case, practical value, limits, pricing context and whether the tool improves a workflow. Commercial relationships are clearly marked and do not change the verdict.",
+  },
+  {
+    question: "What is in the free Starter Pack?",
+    answer: "The Starter Pack includes practical AI workflow templates you can adapt, plus a concise weekly note with workflows, tools and ideas worth testing.",
+  },
+  {
+    question: "What is the AI Business Operations Pack?",
+    answer: "It is a €29 one-time purchase with six practical operating systems, copy-ready prompts and templates for founders, operators and small teams.",
+  },
+];
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://hacks2.com/#organization",
+      name: "Hacks²",
+      url: "https://hacks2.com/",
+      description: "An editorial AI interface for workflows, tools and automations.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hacks2.com/#website",
+      url: "https://hacks2.com/",
+      name: "Hacks²",
+      publisher: { "@id": "https://hacks2.com/#organization" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://hacks2.com/#webpage",
+      url: "https://hacks2.com/",
+      name: "Hacks² — AI workflows, tools & automations",
+      description: "Practical AI workflows, clear tool reviews and automations built for real work.",
+      isPartOf: { "@id": "https://hacks2.com/#website" },
+      about: { "@id": "https://hacks2.com/#organization" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: homepageFaq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -20,8 +76,21 @@ const protocols = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Hacks² is an editorial AI interface for workflows, tools and automations." />
+    <meta name="description" content="Practical AI workflows, clear tool reviews and automations built for real work — edited by Nikolay Hristov." />
+    <link rel="canonical" href="https://hacks2.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hacks²" />
+    <meta property="og:title" content="Hacks² — AI workflows, tools & automations" />
+    <meta property="og:description" content="Practical AI workflows, clear tool reviews and automations built for real work." />
+    <meta property="og:url" content="https://hacks2.com/" />
+    <meta property="og:image" content="https://hacks2.com/images/hacks2-workflow-system.jpg" />
+    <meta property="og:image:alt" content="Abstract system turning scattered inputs into a repeatable AI workflow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hacks² — AI workflows, tools & automations" />
+    <meta name="twitter:description" content="Practical AI workflows, clear tool reviews and automations built for real work." />
+    <meta name="twitter:image" content="https://hacks2.com/images/hacks2-workflow-system.jpg" />
     <title>Hacks² — AI workflows, tools & automations</title>
+    <script type="application/ld+json" set:html={JSON.stringify(homepageSchema)} />
     <GoogleAnalytics />
   </head>
   <body>
@@ -109,6 +178,58 @@ const protocols = [
         </div>
       </section>
 
+      <section class="proof-case" aria-labelledby="proof-case-title">
+        <div>
+          <span class="section-tag">A system, not a magic prompt</span>
+          <h2 id="proof-case-title">From scattered input<br />to a <em>decision-ready brief.</em></h2>
+        </div>
+        <div class="proof-case-grid">
+          <article>
+            <span>Before</span>
+            <p>Client notes, emails and call transcripts live in separate places. The next step relies on someone remembering what matters.</p>
+          </article>
+          <article>
+            <span>System</span>
+            <p>Capture the source material, ask AI to structure it against a fixed brief, then keep a human review before anything is sent.</p>
+          </article>
+          <article>
+            <span>Target outcome</span>
+            <p>One reviewable brief, clear owners and a repeatable handoff — with the aim of saving around 25 minutes on every qualified client brief.</p>
+          </article>
+        </div>
+        <a class="proof-case-link" href="/workflows/ai-client-brief-to-delivery/">See the client brief workflow <span>↗</span></a>
+      </section>
+
+      <section class="editorial-trust" aria-labelledby="editorial-trust-title">
+        <div class="editorial-intro">
+          <span class="section-tag">Who is behind this</span>
+          <h2 id="editorial-trust-title">Edited for<br /><em>applied intelligence.</em></h2>
+          <p><strong>Nikolay Hristov</strong> is the editor of Hacks². The publication focuses on the practical layer of AI: turning useful tools into clear, reusable workflows for real work.</p>
+          <p class="editorial-updated">Editorial standards reviewed · Updated 1 August 2026</p>
+        </div>
+        <div class="editorial-principles" aria-label="Editorial principles">
+          <article><span>01</span><h3>Useful over loud</h3><p>We prioritize specific use cases and durable processes over prompt theatre and vague claims.</p></article>
+          <article><span>02</span><h3>Limits included</h3><p>Tools are assessed for practical value, pricing context and the trade-offs that matter before you adopt them.</p></article>
+          <article><span>03</span><h3>Clear commercial lines</h3><p>Affiliate relationships are marked. They never decide a recommendation.</p></article>
+        </div>
+        <a class="editorial-disclosure-link" href="/disclosure/">Read the editorial &amp; affiliate disclosure <span>↗</span></a>
+      </section>
+
+      <section class="home-faq" aria-labelledby="home-faq-title">
+        <div>
+          <span class="section-tag">Quick answers</span>
+          <h2 id="home-faq-title">Know the<br /><em>operating model.</em></h2>
+        </div>
+        <div class="home-faq-list">
+          {homepageFaq.map((item) => (
+            <details>
+              <summary>{item.question}<span aria-hidden="true">+</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section class="closing" id="notes">
         <div>
           <p>H² / issue zero</p>
@@ -136,6 +257,5 @@ const protocols = [
     </main>
   </body>
 </html>
-
 
 
