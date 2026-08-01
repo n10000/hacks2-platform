@@ -1268,6 +1268,19 @@ button { font: inherit; }
 .starter-process li { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 25px 0; border-bottom: 1px solid var(--line); }
 .starter-process li span { color: var(--cyan); font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
 .starter-process li p { max-width: 540px; margin: 0; color: #c6c7bc; font-size: 1.03rem; }
+.starter-templates { padding: clamp(85px, 12vw, 155px) clamp(20px, 8vw, 140px); background: var(--ink); }
+.starter-template-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; margin-bottom: 58px; }
+.starter-template-heading h2 { margin: 0; font-size: clamp(3.5rem, 7vw, 7rem); line-height: .84; letter-spacing: -.08em; text-transform: uppercase; }
+.starter-template-heading h2 em { color: var(--acid); font-style: normal; }
+.starter-template-heading p { max-width: 470px; margin: 46px 0 0; color: #c6c7bc; font-family: Georgia, serif; line-height: 1.6; }
+.starter-template-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.starter-template-card { min-width: 0; padding: 25px; border: 1px solid var(--line); background: rgba(121,232,244,.055); }
+.starter-template-card > span { color: var(--cyan); font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
+.starter-template-card h3 { margin: 42px 0 12px; color: var(--paper); font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: .88; letter-spacing: -.065em; text-transform: uppercase; }
+.starter-template-card > p { min-height: 52px; margin: 0 0 22px; color: #c6c7bc; line-height: 1.45; }
+.starter-template-card pre { min-height: 180px; margin: 0; padding: 17px; overflow-x: auto; white-space: pre-wrap; color: var(--ink); background: var(--paper); font: .78rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.starter-product-link { display: inline-flex; gap: 10px; margin: 0 0 24px; color: var(--ink); font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+.starter-product-link span { color: #7560df; font-size: 1.15rem; }
 .starter-final { padding: clamp(90px, 13vw, 175px) clamp(20px, 8vw, 140px); background: var(--violet); color: var(--ink); }
 .starter-final .section-tag { color: var(--ink); font-weight: 800; }
 .starter-final h2 { max-width: 860px; }
@@ -1286,6 +1299,10 @@ button { font: inherit; }
   .starter-for,
   .starter-process,
   .starter-section-heading { grid-template-columns: 1fr; }
+  .starter-template-heading,
+  .starter-template-grid { grid-template-columns: 1fr; }
+  .starter-template-heading p { margin-top: 0; }
+  .starter-template-card > p { min-height: 0; }
   .starter-hero-grid,
   .starter-for,
   .starter-process { gap: 48px; }

@@ -29,6 +29,27 @@ const inclusions = [
     copy: "A 20-minute review for keeping the AI patterns that work and stopping the ones that do not.",
   },
 ];
+
+const starterTemplates = [
+  {
+    number: "01",
+    title: "Brief the task",
+    copy: "Use this before opening a chat or automation builder.",
+    prompt: "Task: [what needs to be done]\nAudience: [who will use the result]\nContext: [facts, files or links]\nConstraints: [time, format, tone, exclusions]\nUseful output: [what good looks like]",
+  },
+  {
+    number: "02",
+    title: "Check the result",
+    copy: "Make the human review explicit instead of assuming the first draft is ready.",
+    prompt: "Review the draft for:\n- unsupported claims or missing evidence\n- unclear assumptions and open questions\n- tone, format and audience fit\n- actions that need human approval\nReturn: issues, fixes and a ready/not-ready decision.",
+  },
+  {
+    number: "03",
+    title: "Keep the learning",
+    copy: "Record one small improvement so the workflow gets better next time.",
+    prompt: "Weekly workflow review:\nWhat repeated task did we test?\nWhat saved time or improved quality?\nWhere did the output need correction?\nWhat one change will we keep next week?\nOwner: [name]  Review date: [date]",
+  },
+];
 ---
 
 <!doctype html>
@@ -134,10 +155,29 @@ const inclusions = [
         </ol>
       </section>
 
+      <section class="starter-templates" aria-labelledby="templates-title">
+        <div class="starter-template-heading">
+          <span class="section-tag">Copy-ready starting points</span>
+          <h2 id="templates-title">USE ONE<br /><em>RIGHT NOW.</em></h2>
+          <p>Copy a block into your next AI session, replace the brackets and keep a person responsible for the final decision.</p>
+        </div>
+        <div class="starter-template-grid">
+          {starterTemplates.map((template) => (
+            <article class="starter-template-card">
+              <span>{template.number}</span>
+              <h3>{template.title}</h3>
+              <p>{template.copy}</p>
+              <pre>{template.prompt}</pre>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section class="starter-final">
         <span class="section-tag">Start small. Keep what works.</span>
         <h2>YOUR NEXT<br />USEFUL<br /><em>WORKFLOW.</em></h2>
         <p>Get the Starter Pack, then use it on one task that matters this week.</p>
+        <a class="starter-product-link" href="/business-operations-pack/" data-analytics-event="business_operations_pack_internal_click" data-analytics-label="Explore AI Business Operations Pack" data-analytics-location="starter_pack_final">Need a deeper operating layer? Explore the Operations Pack <span>↗</span></a>
         <a
           class="starter-final-button"
           href="https://hacks2.substack.com/subscribe"
