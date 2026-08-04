@@ -3,15 +3,15 @@ import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 const signals = [
-  { number: "01 / Workflows", title: "Repeatable systems.", text: "Practical AI operating models that take a task from idea to a working result." },
-  { number: "02 / Tools", title: "Useful by default.", text: "A sharp filter for the tools worth learning, paying for, or connecting." },
-  { number: "03 / Field Notes", title: "Reality, not hype.", text: "Experiments, patterns, and lessons from the moving edge of applied AI." },
+  { number: "01 / Workflows", title: "Repeatable systems.", text: "Practical AI operating models that take a task from idea to a working result.", href: "/workflows/" },
+  { number: "02 / Tools", title: "Useful by default.", text: "A sharp filter for the tools worth learning, paying for, or connecting.", href: "/tools/" },
+  { number: "03 / Field Notes", title: "Reality, not hype.", text: "Experiments, patterns, and lessons from the moving edge of applied AI.", href: "/notes/" },
 ];
 
 const protocols = [
-  ["Workflow Atlas", "Step-by-step systems for real work."],
-  ["Tool Index", "The stack behind faster decisions."],
-  ["Field Notes", "Signals collected while building."],
+  ["Workflow Atlas", "Step-by-step systems for real work.", "/workflows/"],
+  ["Tool Index", "The stack behind faster decisions.", "/tools/"],
+  ["Field Notes", "Signals collected while building.", "/notes/"],
 ];
 
 const homepageFaq = [
@@ -149,14 +149,14 @@ const homepageSchema = {
         <h2 class="section-heading">Less prompt theatre.<br />More output.</h2>
         <div class="signal-grid">
           {signals.map((signal) => (
-            <article class="signal">
+            <a class="signal" href={signal.href}>
               <span class="signal-number">{signal.number}</span>
               <div>
                 <h3>{signal.title}</h3>
                 <p>{signal.text}</p>
               </div>
               <span>↗</span>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -167,8 +167,8 @@ const homepageSchema = {
         <div class="protocol">
           <p class="protocol-aside">We document what survives contact with actual work: clear inputs, durable processes and outcomes you can measure.</p>
           <div class="protocol-list">
-            {protocols.map(([title, description]) => (
-              <a class="protocol-item" href="/notes/">
+            {protocols.map(([title, description, href]) => (
+              <a class="protocol-item" href={href}>
                 <h3>{title}</h3>
                 <span>{description}</span>
                 <b aria-hidden="true">↗</b>
@@ -187,15 +187,15 @@ const homepageSchema = {
           <article>
             <span>Before</span>
             <p>Client notes, emails and call transcripts live in separate places. The next step relies on someone remembering what matters.</p>
-          </article>
+          </a>
           <article>
             <span>System</span>
             <p>Capture the source material, ask AI to structure it against a fixed brief, then keep a human review before anything is sent.</p>
-          </article>
+          </a>
           <article>
             <span>Target outcome</span>
             <p>One reviewable brief, clear owners and a repeatable handoff — with the aim of saving around 25 minutes on every qualified client brief.</p>
-          </article>
+          </a>
         </div>
         <a class="proof-case-link" href="/workflows/ai-client-brief-to-delivery/">See the client brief workflow <span>↗</span></a>
       </section>
@@ -208,9 +208,9 @@ const homepageSchema = {
           <p class="editorial-updated">Editorial standards reviewed · Updated 1 August 2026</p>
         </div>
         <div class="editorial-principles" aria-label="Editorial principles">
-          <article><span>01</span><h3>Useful over loud</h3><p>We prioritize specific use cases and durable processes over prompt theatre and vague claims.</p></article>
-          <article><span>02</span><h3>Limits included</h3><p>Tools are assessed for practical value, pricing context and the trade-offs that matter before you adopt them.</p></article>
-          <article><span>03</span><h3>Clear commercial lines</h3><p>Affiliate relationships are marked. They never decide a recommendation.</p></article>
+          <article><span>01</span><h3>Useful over loud</h3><p>We prioritize specific use cases and durable processes over prompt theatre and vague claims.</p></a>
+          <article><span>02</span><h3>Limits included</h3><p>Tools are assessed for practical value, pricing context and the trade-offs that matter before you adopt them.</p></a>
+          <article><span>03</span><h3>Clear commercial lines</h3><p>Affiliate relationships are marked. They never decide a recommendation.</p></a>
         </div>
         <a class="editorial-disclosure-link" href="/disclosure/">Read the editorial &amp; affiliate disclosure <span>↗</span></a>
       </section>
