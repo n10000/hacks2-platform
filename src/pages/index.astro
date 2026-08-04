@@ -149,14 +149,14 @@ const homepageSchema = {
         <h2 class="section-heading">Less prompt theatre.<br />More output.</h2>
         <div class="signal-grid">
           {signals.map((signal) => (
-            <article class="signal">
+            <a class="signal" href={signal.href}>
               <span class="signal-number">{signal.number}</span>
               <div>
                 <h3>{signal.title}</h3>
                 <p>{signal.text}</p>
               </div>
               <span>↗</span>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -257,5 +257,3 @@ const homepageSchema = {
     </main>
   </body>
 </html>
-
-
