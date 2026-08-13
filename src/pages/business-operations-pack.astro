@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
-const paymentLink = "https://buy.stripe.com/8x28wP4vP0yxcga5JT1oI00";
+const paymentLink = "https://buy.stripe.com/8x2cN44fr8kLd2W6pO28801";
 
 const inclusions = [
   ["01", "Workflow map", "A decision filter for choosing repeated work worth improving before you automate it."],
@@ -47,7 +47,7 @@ const inclusions = [
           <h1>MAKE AI<br />PART OF THE<br /><em>WORK.</em></h1>
         </div>
         <div class="product-purchase-card">
-          <p class="product-price">€29 <span>one-time</span></p>
+          <p class="product-price">€19 <span>one-time</span></p>
           <p>A focused PDF field guide with six systems, copy-ready prompts and working templates for the operational work that repeats every week.</p>
           {paymentLink ? (
             <a class="product-buy-button" href={paymentLink} target="_blank" rel="noopener noreferrer" data-analytics-event="business_operations_pack_checkout_click" data-analytics-label="Buy AI Business Operations Pack" data-analytics-location="product_hero">Buy securely via Stripe <span>↗</span></a>
@@ -82,7 +82,7 @@ const inclusions = [
       <section class="product-final">
         <span class="section-tag">One task. One useful change.</span>
         <h2>STOP<br />EXPERIMENTING.<br /><em>START OPERATING.</em></h2>
-        <p>AI Business Operations Pack · €29 one-time · Digital PDF</p>
+        <p>AI Business Operations Pack · €19 one-time · Digital PDF</p>
         {paymentLink ? (
           <a class="product-final-button" href={paymentLink} target="_blank" rel="noopener noreferrer" data-analytics-event="business_operations_pack_checkout_click" data-analytics-label="Buy AI Business Operations Pack" data-analytics-location="product_final">Get the pack via Stripe <span>↗</span></a>
         ) : <span class="product-release-note product-release-note-light">Checkout opens with the product release.</span>}
