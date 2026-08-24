@@ -10,6 +10,26 @@ const inclusions = [
   ["03", "Copy-ready prompts", "Clear prompts that preserve uncertainty instead of inventing scope, dates, prices or commitments."],
   ["04", "Six working templates", "Simple formats for mapping a workflow, reviewing leads, tracking actions and keeping SOPs alive."],
 ];
+
+const deliveryDetails = [
+  ["10-page PDF", "A concise field guide in English that you can keep, annotate and use with your own tools."],
+  ["Six systems", "Workflow map, lead qualification, client onboarding, meeting actions, SOP builder and weekly review."],
+  ["Six templates", "Reusable starting points for the repeated work that needs a clear owner, next step and review point."],
+  ["Email delivery", "The PDF is sent to the email address used at checkout after successful payment."],
+];
+
+const previews = [
+  ["/images/operations-pack/cover.jpg", "The AI Business Operations Pack cover page", "The field guide"],
+  ["/images/operations-pack/workflow-map.jpg", "A workflow map page from the AI Business Operations Pack", "A real workflow system"],
+  ["/images/operations-pack/templates.jpg", "Six reusable templates shown in the AI Business Operations Pack", "Six reusable templates"],
+];
+
+const faqs = [
+  ["Who is this for?", "Founders, operators and small teams who want to make repeated admin clearer before they automate it."],
+  ["What happens after I pay?", "Stripe processes the one-time €19 payment. The PDF is then sent to the email address entered at checkout."],
+  ["Is this a course or a software subscription?", "No. It is a one-time digital PDF purchase. It does not include a tool subscription or done-for-you implementation."],
+  ["Where can I get purchase help?", "Email info@hacks2.com with the email used at checkout. Refund requests follow the digital product refund policy."],
+];
 ---
 
 <!doctype html>
@@ -64,6 +84,28 @@ const inclusions = [
         <p>For founders, operators and small teams who know AI can help, but want it to reduce repeat admin without creating a fragile collection of disconnected tools.</p>
       </section>
 
+      <section class="product-delivery" aria-labelledby="product-delivery-title">
+        <div>
+          <span class="section-tag">Clear, immediate delivery</span>
+          <h2 id="product-delivery-title">WHAT YOU GET<br /><em>FOR €19.</em></h2>
+          <p>One focused resource for the operating work that repeats every week - with no course login, software subscription or vague promise to “automate everything.”</p>
+        </div>
+        <div class="product-delivery-grid">
+          {deliveryDetails.map(([title, copy]) => <article><h3>{title}</h3><p>{copy}</p></article>)}
+        </div>
+      </section>
+
+      <section class="product-preview" aria-labelledby="product-preview-title">
+        <div class="product-preview-heading">
+          <span class="section-tag">Inside the PDF</span>
+          <h2 id="product-preview-title">SEE THE<br /><em>ACTUAL WORK.</em></h2>
+          <p>These are real pages from the pack - not mockups. The guide stays deliberately practical: a clear job, a bounded first pass and a human review point.</p>
+        </div>
+        <div class="product-preview-grid">
+          {previews.map(([src, alt, caption]) => <figure><img src={src} alt={alt} loading="lazy" width="1200" height="1696" /><figcaption>{caption}</figcaption></figure>)}
+        </div>
+      </section>
+
       <section class="product-inclusions" aria-labelledby="product-inclusions-title">
         <div><span class="section-tag">Inside the pack</span><h2 id="product-inclusions-title">SYSTEMS YOU<br /><em>CAN USE TODAY.</em></h2></div>
         <div class="product-inclusion-grid">
@@ -76,6 +118,13 @@ const inclusions = [
         <div>
           <p>Use AI to organise, draft and make a first pass. A person still reviews anything that can change a customer commitment, payment, contract, price or public claim.</p>
           <ol><li><span>01</span><p>Map the repeated task and its current cost.</p></li><li><span>02</span><p>Run one bounded real-world example.</p></li><li><span>03</span><p>Compare quality, keep one improvement and record the result next week.</p></li></ol>
+        </div>
+      </section>
+
+      <section class="product-faq" aria-labelledby="product-faq-title">
+        <div><span class="section-tag">Before you buy</span><h2 id="product-faq-title">THE PRACTICAL<br /><em>DETAILS.</em></h2></div>
+        <div class="product-faq-list">
+          {faqs.map(([question, answer]) => <article><h3>{question}</h3><p>{answer}</p></article>)}
         </div>
       </section>
 
