@@ -14,6 +14,12 @@ const protocols = [
   ["Field Notes", "Signals collected while building.", "/notes/"],
 ];
 
+const starterPackBenefits = [
+  ["01", "One useful starting point", "A practical way to choose one repeated task worth improving first."],
+  ["02", "Templates you can adapt", "Clear structures for turning scattered work into a defined next step."],
+  ["03", "A weekly signal", "One concise note with workflows, tools and ideas worth testing - no daily noise."],
+];
+
 const homepageFaq = [
   {
     question: "Who edits Hacks²?",
@@ -115,11 +121,14 @@ const homepageSchema = {
         <div class="hero-kicker"><span class="pulse"></span> Live research for useful intelligence</div>
         <h1 class="hero-title">Make AI<br /><span class="offset">do <em>work.</em></span></h1>
         <div class="hero-footer">
-          <p class="hero-copy">Hacks² is a field guide for people building an unfair advantage with AI workflows, tools and automation.</p>
+          <div>
+            <p class="hero-copy">Hacks² is a field guide for people building an unfair advantage with AI workflows, tools and automation.</p>
+            <p class="hero-proof">Free Starter Pack · English · One useful email each week</p>
+          </div>
           <div class="hero-actions">
-            <a class="primary-link" href="/workflows/">Explore workflows <span class="arrow">↘</span></a>
+            <a class="primary-link" href="/starter-pack/" data-analytics-event="starter_pack_internal_click" data-analytics-label="Get the free Starter Pack" data-analytics-location="home_hero">Get the free Starter Pack <span class="arrow">↘</span></a>
+            <a class="secondary-link" href="/workflows/">Browse workflows <span class="arrow">↘</span></a>
             <a class="secondary-link" href="/roi-calculator/">Estimate automation ROI <span class="arrow">↘</span></a>
-            <a class="secondary-link" href="/starter-pack/" data-analytics-event="starter_pack_internal_click" data-analytics-label="Get the free Starter Pack" data-analytics-location="home_hero">Get the free Starter Pack <span class="arrow">↘</span></a>
           </div>
         </div>
       </section>
@@ -130,6 +139,18 @@ const homepageSchema = {
           <span>AI workflows</span><span>✳</span><span>Tools with teeth</span><span>✳</span><span>Automate the boring</span><span>✳</span><span>Signal over noise</span><span>✳</span>
         </div>
       </div>
+
+      <section class="starter-home-bridge" aria-labelledby="starter-home-title">
+        <div class="starter-home-intro">
+          <span class="section-tag">Start free</span>
+          <h2 id="starter-home-title">DON'T COLLECT<br /><em>MORE PROMPTS.</em></h2>
+          <p>Start with one repeated task, a clear first pass and a review point. The Starter Pack gives you a practical place to begin.</p>
+          <a class="starter-home-button" href="/starter-pack/" data-analytics-event="starter_pack_internal_click" data-analytics-label="Get the free Starter Pack" data-analytics-location="home_starter_bridge">Get the free Starter Pack <span>↘</span></a>
+        </div>
+        <div class="starter-home-benefits">
+          {starterPackBenefits.map(([number, title, copy]) => <article><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
+        </div>
+      </section>
 
       <section class="product-promo" aria-labelledby="operations-pack-title">
         <div class="product-promo-index"><span>H² / Paid field guide</span><strong>001</strong></div>
@@ -234,7 +255,7 @@ const homepageSchema = {
         <div>
           <p>H² / issue zero</p>
           <h2>Build smarter.<br /><span>Ship stranger.</span></h2>
-          <a class="primary-link" href="mailto:info@hacks2.com">Get the first signal <span class="arrow">↗</span></a>
+          <a class="primary-link" href="/starter-pack/" data-analytics-event="starter_pack_internal_click" data-analytics-label="Get the free Starter Pack" data-analytics-location="home_closing">Get the free Starter Pack <span class="arrow">↘</span></a>
         </div>
       </section>
 
