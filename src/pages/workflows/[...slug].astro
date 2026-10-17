@@ -53,8 +53,7 @@ const articleSchema = {
   dateModified: modifiedDateIso,
   articleSection: workflow.data.category,
   author: {
-    "@type": "Person",
-    name: "Nikolay Hristov",
+    "@id": "https://hacks2.com/#nikolay-hristov",
   },
   publisher: {
     "@type": "Organization",
@@ -89,9 +88,36 @@ const breadcrumbSchema = {
   ],
 };
 
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": "https://hacks2.com/#organization",
+  name: "Hacks²",
+  url: "https://hacks2.com/",
+  description: "An editorial AI interface for workflows, tools and automations.",
+};
+
+const personSchema = {
+  "@type": "Person",
+  "@id": "https://hacks2.com/#nikolay-hristov",
+  name: "Nikolay Hristov",
+  url: "https://hacks2.com/",
+  jobTitle: "Editor",
+  worksFor: { "@id": "https://hacks2.com/#organization" },
+  knowsAbout: ["AI workflows", "automation", "business AI tools"],
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": "https://hacks2.com/#website",
+  url: "https://hacks2.com/",
+  name: "Hacks²",
+  publisher: { "@id": "https://hacks2.com/#organization" },
+  creator: { "@id": "https://hacks2.com/#nikolay-hristov" },
+};
+
 const structuredData = {
   "@context": "https://schema.org",
-  "@graph": [articleSchema, breadcrumbSchema],
+  "@graph": [organizationSchema, personSchema, websiteSchema, articleSchema, breadcrumbSchema],
 };
 ---
 
