@@ -34,11 +34,14 @@ const imageHeight = workflow.data.imageHeight ?? 909;
 const publishedDateIso = workflow.data.publishedAt.toISOString();
 const modifiedDateIso = (workflow.data.updatedAt ?? workflow.data.publishedAt).toISOString();
 const articleSchema = {
-  "@context": "https://schema.org",
   "@type": "Article",
+  "@id": `${canonicalUrl.toString()}#article`,
   headline: workflow.data.title,
   description: workflow.data.description,
-  mainEntityOfPage: canonicalUrl.toString(),
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalUrl.toString(),
+  },
   url: canonicalUrl.toString(),
   image: {
     "@type": "ImageObject",
@@ -48,15 +51,47 @@ const articleSchema = {
   },
   datePublished: publishedDateIso,
   dateModified: modifiedDateIso,
+  articleSection: workflow.data.category,
   author: {
     "@type": "Person",
     name: "Nikolay Hristov",
   },
   publisher: {
     "@type": "Organization",
+    "@id": "https://hacks2.com/#organization",
     name: "Hacks²",
     url: "https://hacks2.com/",
   },
+};
+
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  "@id": `${canonicalUrl.toString()}#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Hacks²",
+      item: "https://hacks2.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Workflows",
+      item: "https://hacks2.com/workflows/",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: workflow.data.title,
+      item: canonicalUrl.toString(),
+    },
+  ],
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [articleSchema, breadcrumbSchema],
 };
 ---
 
@@ -84,7 +119,7 @@ const articleSchema = {
     <meta name="twitter:description" content={workflow.data.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={heroImageAlt} />
-    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <GoogleAnalytics />
   </head>
   <body>
