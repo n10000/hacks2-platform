@@ -13,6 +13,11 @@ const workflows = defineCollection({
     featured: z.boolean().default(false),
     outcomes: z.array(z.string()),
     tools: z.array(z.string()),
+    heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
+    socialImage: z.string().optional(),
+    imageWidth: z.number().int().positive().optional(),
+    imageHeight: z.number().int().positive().optional(),
     template: z.enum(["research-decision-brief"]).optional(),
   }),
 });

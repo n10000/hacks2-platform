@@ -2,6 +2,7 @@
 title: "How to Build AI Automations That Don't Break"
 description: "A practical reliability framework for AI workflows: validate inputs, prevent duplicates, retry safely, add human fallbacks and make failures visible before they reach customers."
 publishedAt: 2026-10-17
+updatedAt: 2026-10-17
 category: "Automation reliability"
 readTime: "10 min read"
 featured: true
@@ -14,6 +15,11 @@ tools:
   - "n8n"
   - "Zapier"
   - "AI model/API"
+heroImage: "/images/how-to-build-ai-automations-that-dont-break.svg"
+heroImageAlt: "Hacks² reliability workflow showing validation, AI processing, checkpoints, retries, alerts, recovery and monitoring"
+socialImage: "/images/how-to-build-ai-automations-that-dont-break.png"
+imageWidth: 1200
+imageHeight: 630
 ---
 
 The easiest AI automation to build is the happy path.

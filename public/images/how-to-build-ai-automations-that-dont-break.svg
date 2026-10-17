@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">How to Build AI Automations That Don't Break</title>
+  <desc id="desc">Hacks² reliability workflow showing validation, AI processing, checkpointing, retries, alerts, recovery and monitoring.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101b"/>
+      <stop offset="0.55" stop-color="#071827"/>
+      <stop offset="1" stop-color="#07111d"/>
+    </linearGradient>
+    <linearGradient id="headline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#49c6ff"/>
+      <stop offset="1" stop-color="#8e87ff"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e71ff" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#0d2138" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5dafff"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ff627a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity=".09" stroke="#7aa7cc" stroke-width="1">
+    <path d="M0 115H1200M0 220H1200M0 325H1200M0 430H1200M0 535H1200"/>
+    <path d="M120 0V630M260 0V630M400 0V630M540 0V630M680 0V630M820 0V630M960 0V630M1100 0V630"/>
+  </g>
+  <path d="M760 0C900 55 1040 48 1200 26V0Z" fill="url(#arc)" opacity=".75"/>
+  <path d="M735 64C870 12 1010 10 1200 18" fill="none" stroke="#238dff" stroke-opacity=".25"/>
+  <path d="M790 92C930 42 1060 42 1200 56" fill="none" stroke="#238dff" stroke-opacity=".15"/>
+
+  <text x="48" y="58" fill="#f6f8fb" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">H²</text>
+  <text x="100" y="58" fill="#b8c7da" font-family="Arial,Helvetica,sans-serif" font-size="22">/ Hacks²</text>
+  <line x1="198" y1="51" x2="742" y2="51" stroke="#35556f"/>
+  <circle cx="191" cy="51" r="2" fill="#5dafff"/>
+
+  <text x="48" y="135" fill="#f7f8fa" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="800">How to Build</text>
+  <text x="48" y="197" fill="url(#headline)" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="800">AI Automations</text>
+  <text x="48" y="259" fill="#f7f8fa" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="800">That Don’t Break</text>
+  <text x="48" y="299" fill="#9fb0c8" font-family="Arial,Helvetica,sans-serif" font-size="20">A practical reliability framework for AI workflows</text>
+
+  <g font-family="Arial,Helvetica,sans-serif">
+    <g transform="translate(48 358)">
+      <rect width="132" height="92" rx="12" fill="#0b1624" stroke="#38536d"/>
+      <text x="20" y="39" fill="#eef4fb" font-size="18" font-weight="700">Input</text>
+      <text x="20" y="64" fill="#8599b2" font-size="13">Receive event</text>
+    </g>
+    <path d="M180 404H208" stroke="#5dafff" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(216 358)">
+      <rect width="158" height="92" rx="12" fill="#08201f" stroke="#22d6bd"/>
+      <circle cx="31" cy="32" r="16" fill="none" stroke="#22d6bd" stroke-width="3"/>
+      <path d="M23 32l6 6 11-14" fill="none" stroke="#22d6bd" stroke-width="3"/>
+      <text x="56" y="35" fill="#eef4fb" font-size="17" font-weight="700">Validate</text>
+      <text x="56" y="58" fill="#8da2b8" font-size="12">format · rules</text>
+      <text x="56" y="75" fill="#8da2b8" font-size="12">required data</text>
+    </g>
+    <path d="M374 404H404" stroke="#5dafff" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(412 358)">
+      <rect width="176" height="92" rx="12" fill="#0b1830" stroke="#4f8eff"/>
+      <circle cx="32" cy="32" r="16" fill="none" stroke="#5b91ff" stroke-width="3"/>
+      <text x="25" y="38" fill="#7db3ff" font-size="17" font-weight="800">AI</text>
+      <text x="58" y="35" fill="#eef4fb" font-size="17" font-weight="700">Processing</text>
+      <text x="58" y="58" fill="#8da2b8" font-size="12">classify · extract</text>
+      <text x="58" y="75" fill="#8da2b8" font-size="12">reason · draft</text>
+    </g>
+    <path d="M588 404H618" stroke="#5dafff" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(626 358)">
+      <rect width="158" height="92" rx="12" fill="#0b1830" stroke="#4f8eff"/>
+      <ellipse cx="31" cy="26" rx="14" ry="7" fill="none" stroke="#6da2ff" stroke-width="2"/>
+      <path d="M17 26v22c0 4 28 4 28 0V26M17 37c0 4 28 4 28 0" fill="none" stroke="#6da2ff" stroke-width="2"/>
+      <text x="56" y="35" fill="#eef4fb" font-size="17" font-weight="700">Checkpoint</text>
+      <text x="56" y="58" fill="#8da2b8" font-size="12">save state</text>
+      <text x="56" y="75" fill="#8da2b8" font-size="12">prevent duplicates</text>
+    </g>
+    <path d="M784 404H814" stroke="#4ee0cf" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(822 358)">
+      <rect width="145" height="92" rx="12" fill="#08201f" stroke="#22d6bd"/>
+      <path d="M23 25l27 12-27 12 6-12z" fill="none" stroke="#22d6bd" stroke-width="2.5"/>
+      <text x="61" y="35" fill="#eef4fb" font-size="17" font-weight="700">Send</text>
+      <text x="61" y="58" fill="#8da2b8" font-size="12">deliver result</text>
+      <text x="61" y="75" fill="#8da2b8" font-size="12">to destination</text>
+    </g>
+    <path d="M967 404H997" stroke="#5dafff" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(1005 358)">
+      <rect width="147" height="92" rx="12" fill="#0b1624" stroke="#48678a"/>
+      <path d="M26 49V36M35 49V27M44 49V19" stroke="#53d9e7" stroke-width="4" stroke-linecap="round"/>
+      <text x="59" y="35" fill="#eef4fb" font-size="17" font-weight="700">Monitor</text>
+      <text x="59" y="58" fill="#8da2b8" font-size="12">track · alert</text>
+      <text x="59" y="75" fill="#8da2b8" font-size="12">verify success</text>
+    </g>
+
+    <path d="M700 350C700 319 715 308 746 308H850" fill="none" stroke="#61aaff" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+    <g transform="translate(858 283)">
+      <rect width="156" height="55" rx="10" fill="#0b1624" stroke="#48678a"/>
+      <path d="M19 30a12 12 0 1 1 4 8M18 20v10h10" fill="none" stroke="#4bb5ff" stroke-width="2.5"/>
+      <text x="49" y="24" fill="#eef4fb" font-size="15" font-weight="700">Retry safely</text>
+      <text x="49" y="42" fill="#8da2b8" font-size="11">backoff + limits</text>
+    </g>
+
+    <path d="M500 452V486C500 500 513 509 528 509H625" fill="none" stroke="#ff627a" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrowRed)"/>
+    <text x="526" y="490" fill="#ff758a" font-size="13" font-weight="700">ON FAILURE</text>
+    <g transform="translate(636 480)">
+      <rect width="165" height="70" rx="12" fill="#241219" stroke="#ff627a"/>
+      <path d="M24 49l14-27 14 27z" fill="none" stroke="#ff627a" stroke-width="2.5"/>
+      <text x="64" y="30" fill="#f9eef0" font-size="16" font-weight="700">Alert</text>
+      <text x="64" y="49" fill="#b9a0a9" font-size="11">surface context</text>
+    </g>
+    <path d="M801 515H832" stroke="#ff627a" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrowRed)"/>
+    <g transform="translate(840 480)">
+      <rect width="190" height="70" rx="12" fill="#0b1624" stroke="#48678a"/>
+      <path d="M23 44l18-18m-8-5 6-6 7 7-6 6m-12 12-6 6-7-7 6-6" fill="none" stroke="#9fc0ef" stroke-width="2.2"/>
+      <text x="62" y="30" fill="#eef4fb" font-size="16" font-weight="700">Recover</text>
+      <text x="62" y="49" fill="#8da2b8" font-size="11">human or automated fix</text>
+    </g>
+    <path d="M1030 515H1082C1100 515 1112 503 1112 485V454" fill="none" stroke="#8aa4c4" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  </g>
+
+  <line x1="48" y1="586" x2="1152" y2="586" stroke="#29445c"/>
+  <text x="48" y="613" fill="#8fa4bc" font-family="Arial,Helvetica,sans-serif" font-size="12" letter-spacing="3">VALIDATE INPUTS  •  PREVENT DUPLICATES  •  RETRY SAFELY  •  RECOVER VISIBLY</text>
+</svg>
